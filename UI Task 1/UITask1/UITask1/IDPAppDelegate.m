@@ -8,7 +8,7 @@
 
 #import "IDPAppDelegate.h"
 
-#import "IDPLabelViewController.h"
+#import "IDPSceneViewController.h"
 
 @interface IDPAppDelegate ()
 
@@ -21,8 +21,8 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
-    window.rootViewController = [IDPLabelViewController new];
-    window.backgroundColor = [UIColor greenColor];
+    window.rootViewController = [IDPSceneViewController new];
+    //window.backgroundColor = [UIColor greenColor];
     
     [window makeKeyAndVisible];
     

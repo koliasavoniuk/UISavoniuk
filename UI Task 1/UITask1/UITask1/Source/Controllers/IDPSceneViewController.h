@@ -1,5 +1,5 @@
 //
-//  IDPLabelViewController.h
+//  IDPSceneViewController.h
 //  UITask1
 //
 //  Created by Student002 on 6/12/17.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IDPLabelViewController : UIViewController
+@interface IDPSceneViewController : UIViewController
 
-- (IBAction)onRotateButton:(id)sender;
+- (IBAction)onMoveButton:(id)sender;
 
 @end
