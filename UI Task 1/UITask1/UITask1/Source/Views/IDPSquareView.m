@@ -13,7 +13,7 @@
 static const CGFloat kIDPAnimationDuration = 1.0f;
 
 @interface IDPSquareView ()
-@property (nonatomic, assign)   BOOL    running;
+@property (nonatomic, assign)   BOOL    moving;
 
 @end
 
@@ -60,7 +60,8 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 #pragma mark -
 #pragma mark Public
 
-- (void)moveSquare {
+- (void)tapButton {
+    self.moving = !self.moving;
     
     [self endlessRunning];
 }
@@ -69,11 +70,14 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 #pragma mark Private
 
 - (IDPSquarePosition)nextPosition {
-    if (self.squarePos == IDPSquareLeftBottom) {
-        self.squarePos = IDPSquareLeftTop;
+    IDPSquarePosition position = self.squarePos;
+    
+    if (position == IDPSquareLeftBottom) {
+        position = IDPSquareLeftTop;
     } else {
-        self.squarePos++;
+        position++;
     }
+    self.squarePos = position;
     
     return self.squarePos;
 }
@@ -82,8 +86,10 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     __weak IDPSquareView *weakSelfSquareView = self;
     
     [self setSquarePosition:self.squarePos animated:YES completionHandler:^(BOOL finished) {
-        [weakSelfSquareView nextPosition];
-        [weakSelfSquareView endlessRunning];
+        if (weakSelfSquareView.moving) {
+            [weakSelfSquareView nextPosition];
+            [weakSelfSquareView endlessRunning];
+        }
     }];
 }
 
@@ -94,9 +100,9 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     CGFloat squareHeight = self.bounds.size.height;
     CGFloat squareWidth = self.bounds.size.width;
     
-    CGFloat leftX = 0 + squareWidth / 2;
+    CGFloat leftX = squareWidth / 2;
     CGFloat rightX = sceneWidth - (squareWidth / 2);
-    CGFloat topY = 0 + squareHeight / 2;
+    CGFloat topY = squareHeight / 2;
     CGFloat bottomY = sceneHeight - (squareHeight / 2);
     
     

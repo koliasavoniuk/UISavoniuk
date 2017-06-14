@@ -45,6 +45,6 @@
 #pragma mark Interface Handling
 
 - (IBAction)onMoveButton:(id)sender {
-    [self.labelView.squareView moveSquare];
+    [self.labelView.squareView tapButton];
 }
 @end

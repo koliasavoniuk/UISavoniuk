@@ -18,6 +18,6 @@ typedef NS_ENUM(NSUInteger, IDPSquarePosition) {
 @interface IDPSquareView : UIView
 @property (nonatomic, assign)   IDPSquarePosition   squarePos;
 
-- (void)moveSquare;
+- (void)tapButton;
 
 @end
