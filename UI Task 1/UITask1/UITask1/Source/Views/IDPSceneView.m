@@ -14,12 +14,7 @@
 #pragma mark Public
 
 - (void)awakeFromNib {
-    [super awakeFromNib];
-    
-}
-
-- (void)rotateLabel {
-    self.squareView.transform =  CGAffineTransformMakeRotation((float)arc4random() / UINT32_MAX * 2 * M_2_PI);
+    [super awakeFromNib];    
 }
 
 @end

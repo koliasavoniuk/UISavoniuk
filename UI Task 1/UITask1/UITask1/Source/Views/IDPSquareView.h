@@ -10,14 +10,13 @@
 
 typedef NS_ENUM(NSUInteger, IDPSquarePosition) {
     IDPSquareLeftTop,
-    IDPSquareLeftBotton,
     IDPSquareRightTop,
     IDPSquareRightBottom,
+    IDPSquareLeftBottom
 };
 
 @interface IDPSquareView : UIView
-@property (nonatomic, assign)   IDPSquarePosition   position;
-
+@property (nonatomic, assign)   IDPSquarePosition   squarePos;
 
 - (void)moveSquare;
 
