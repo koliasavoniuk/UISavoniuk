@@ -14,7 +14,11 @@
 #pragma mark Public
 
 - (void)awakeFromNib {
-    [super awakeFromNib];    
+    [super awakeFromNib];
+}
+
+- (void)changeButtonTitle {
+    [self.button setTitle:self.squareView.isMoving ? @"Stop" : @"Start" forState:UIControlStateNormal];
 }
 
 @end

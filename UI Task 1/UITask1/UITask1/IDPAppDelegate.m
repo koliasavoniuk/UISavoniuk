@@ -25,15 +25,15 @@
     
     //TASK 1
 
-    //window.rootViewController = [IDPSceneViewController new];
+    window.rootViewController = [IDPSceneViewController new];
 
     
     //TASK 2
-
+    /*
     IDPUsersViewController *controller = [IDPUsersViewController new];
     controller.user = [IDPUser new];
     window.rootViewController = controller;
-    
+    */
     //TASK3
 
     [window makeKeyAndVisible];

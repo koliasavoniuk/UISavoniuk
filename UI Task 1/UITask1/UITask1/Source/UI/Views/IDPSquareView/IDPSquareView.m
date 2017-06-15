@@ -29,6 +29,10 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 #pragma mark -
 #pragma mark Accessors
 
+- (BOOL)isMoving {
+    return _moving;
+}
+
 - (void)setSquarePosition:(IDPSquarePosition)position {
     [self setSquarePosition:position animated:NO];
 

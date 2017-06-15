@@ -12,7 +12,7 @@
 
 #import "IDPMacro.h"
 
-IDPViewControllerBaseViewProperty(IDPSceneViewController, labelView, IDPSceneView)
+IDPViewControllerBaseViewProperty(IDPSceneViewController, sceneView, IDPSceneView)
 
 @implementation IDPSceneViewController
 
@@ -35,6 +35,7 @@ IDPViewControllerBaseViewProperty(IDPSceneViewController, labelView, IDPSceneVie
 #pragma mark Interface Handling
 
 - (IBAction)onMoveButton:(id)sender {
-    [self.labelView.squareView tapButton];
+    [self.sceneView.squareView tapButton];
+    [self.sceneView changeButtonTitle];
 }
 @end
