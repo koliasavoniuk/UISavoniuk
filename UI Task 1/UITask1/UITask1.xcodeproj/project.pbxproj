@@ -17,7 +17,7 @@
 		7676E4681EF28549000AEE4A /* IDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E4671EF28549000AEE4A /* IDPUser.m */; };
 		7676E46E1EF285D4000AEE4A /* IDPMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E46B1EF285D4000AEE4A /* IDPMacro.m */; };
 		7676E46F1EF285D4000AEE4A /* IDPRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E46D1EF285D4000AEE4A /* IDPRandom.m */; };
-		7676E4721EF28695000AEE4A /* NSString+IDPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E4711EF28695000AEE4A /* NSString+IDPCategory.m */; };
+		7676E4771EF2A3B6000AEE4A /* NSString+IDPCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E4751EF2A3B6000AEE4A /* NSString+IDPCategory.m */; };
 		767BCFAF1EEE781C0082B26F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 767BCFAE1EEE781C0082B26F /* main.m */; };
 		767BCFB21EEE781C0082B26F /* IDPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 767BCFB11EEE781C0082B26F /* IDPAppDelegate.m */; };
 		767BCFBA1EEE781C0082B26F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767BCFB91EEE781C0082B26F /* Assets.xcassets */; };
@@ -43,8 +43,8 @@
 		7676E46B1EF285D4000AEE4A /* IDPMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMacro.m; sourceTree = "<group>"; };
 		7676E46C1EF285D4000AEE4A /* IDPRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPRandom.h; sourceTree = "<group>"; };
 		7676E46D1EF285D4000AEE4A /* IDPRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPRandom.m; sourceTree = "<group>"; };
-		7676E4701EF28695000AEE4A /* NSString+IDPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IDPCategory.h"; sourceTree = "<group>"; };
-		7676E4711EF28695000AEE4A /* NSString+IDPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IDPCategory.m"; sourceTree = "<group>"; };
+		7676E4741EF2A3B6000AEE4A /* NSString+IDPCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IDPCategory.h"; sourceTree = "<group>"; };
+		7676E4751EF2A3B6000AEE4A /* NSString+IDPCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IDPCategory.m"; sourceTree = "<group>"; };
 		767BCFAA1EEE781C0082B26F /* UITask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		767BCFAE1EEE781C0082B26F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		767BCFB01EEE781C0082B26F /* IDPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDPAppDelegate.h; sourceTree = "<group>"; };
@@ -138,14 +138,30 @@
 		7676E4691EF285D4000AEE4A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7676E4731EF2A3B6000AEE4A /* Categories */,
+				7676E4761EF2A3B6000AEE4A /* Classes */,
 				7676E46A1EF285D4000AEE4A /* IDPMacro.h */,
 				7676E46B1EF285D4000AEE4A /* IDPMacro.m */,
 				7676E46C1EF285D4000AEE4A /* IDPRandom.h */,
 				7676E46D1EF285D4000AEE4A /* IDPRandom.m */,
-				7676E4701EF28695000AEE4A /* NSString+IDPCategory.h */,
-				7676E4711EF28695000AEE4A /* NSString+IDPCategory.m */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		7676E4731EF2A3B6000AEE4A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7676E4741EF2A3B6000AEE4A /* NSString+IDPCategory.h */,
+				7676E4751EF2A3B6000AEE4A /* NSString+IDPCategory.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		7676E4761EF2A3B6000AEE4A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		767BCFA11EEE781C0082B26F = {
@@ -259,7 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				767BCFB21EEE781C0082B26F /* IDPAppDelegate.m in Sources */,
-				7676E4721EF28695000AEE4A /* NSString+IDPCategory.m in Sources */,
+				7676E4771EF2A3B6000AEE4A /* NSString+IDPCategory.m in Sources */,
 				7676E45C1EF26696000AEE4A /* IDPUsersViewController.m in Sources */,
 				7676E46F1EF285D4000AEE4A /* IDPRandom.m in Sources */,
 				7676E4601EF2673E000AEE4A /* IDPUsersView.m in Sources */,

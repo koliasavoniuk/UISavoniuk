@@ -24,6 +24,8 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.usersView.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,16 +37,21 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 300;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * const kIDPCellName = @"kIDPCellName";
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIDPCellName];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIDPCellName];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIDPCellName];
+    }
     
     cell.textLabel.text = self.user.fullName;
     
+    return cell;
 }
 
 @end

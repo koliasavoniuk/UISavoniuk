@@ -10,4 +10,11 @@
 
 @implementation IDPUsersView
 
+#pragma mark -
+#pragma mark Public
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
+
 @end
