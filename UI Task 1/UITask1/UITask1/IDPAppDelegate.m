@@ -9,6 +9,8 @@
 #import "IDPAppDelegate.h"
 
 #import "IDPSceneViewController.h"
+#import "IDPUsersViewController.h"
+#import "IDPUser.h"
 
 @interface IDPAppDelegate ()
 
@@ -21,9 +23,17 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
+    //TASK 1
+    /*
     window.rootViewController = [IDPSceneViewController new];
-    //window.backgroundColor = [UIColor greenColor];
+    */
     
+    //TASK 2
+    IDPUsersViewController *controller = [IDPUsersViewController new];
+    controller.user = [IDPUser new];
+    
+    window.rootViewController = controller;
+     
     [window makeKeyAndVisible];
     
     return YES;
