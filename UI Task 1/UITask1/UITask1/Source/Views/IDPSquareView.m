@@ -53,8 +53,6 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     [UIView animateWithDuration:interval animations:^{
         self.center = point;
     } completion:completion];
-    
-    NSLog(@"%lu", position);
 }
 
 #pragma mark -
