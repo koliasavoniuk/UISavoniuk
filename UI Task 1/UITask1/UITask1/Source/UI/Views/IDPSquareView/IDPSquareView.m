@@ -53,6 +53,9 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     }
     
     CGPoint point = [self pointWithPosition:position];
+    point.x += (CGRectGetWidth(self.frame) / 2);
+    point.y += (CGRectGetHeight(self.frame) / 2);
+    
     
     [UIView animateWithDuration:interval animations:^{
         self.center = point;
@@ -96,36 +99,30 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 }
 
 - (CGPoint)pointWithPosition:(IDPSquarePosition)position {
-    CGPoint point;
-    CGFloat sceneHeight = self.superview.bounds.size.height;
-    CGFloat sceneWidth = self.superview.bounds.size.width;
-    CGFloat squareHeight = self.bounds.size.height;
-    CGFloat squareWidth = self.bounds.size.width;
+    CGRect superViewFrame = [self.superview convertRect:self.superview.bounds toView:nil];
+    CGRect frame = self.frame;
     
-    CGFloat leftX = squareWidth / 2;
-    CGFloat rightX = sceneWidth - (squareWidth / 2);
-    CGFloat topY = squareHeight / 2;
-    CGFloat bottomY = sceneHeight - (squareHeight / 2);
-    
+    CGPoint point = CGPointZero;
+    CGPoint bottomRight = CGPointMake(CGRectGetWidth(superViewFrame) - CGRectGetWidth(frame), CGRectGetHeight(superViewFrame) - CGRectGetHeight(frame));
     
     switch (position) {
-        case IDPSquareLeftTop:
-            point = CGPointMake(leftX, topY);
-            break;
         case IDPSquareRightTop:
-            point = CGPointMake(rightX, topY);
+            point.x = bottomRight.x;
             break;
+            
         case IDPSquareRightBottom:
-            point = CGPointMake(rightX, bottomY);
+            point = bottomRight;
             break;
+            
         case IDPSquareLeftBottom:
-            point = CGPointMake(leftX, bottomY);
+            point.y = bottomRight.y;
             break;
             
         default:
-            point = CGPointMake(leftX, topY);
             break;
     }
+    
+    frame.origin = point;
     
     return point;
 }
