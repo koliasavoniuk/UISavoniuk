@@ -77,13 +77,13 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 - (IDPSquarePosition)nextPosition {
     IDPSquarePosition position = self.squarePos;
     
-    if (position == IDPSquareLeftBottom) {
+    if (position == IDPSquarePositionCount) {
         position = IDPSquareLeftTop;
     } else {
         position++;
     }
     self.squarePos = position;
-    
+    NSLog(@"%lu", position);
     return self.squarePos;
 }
 

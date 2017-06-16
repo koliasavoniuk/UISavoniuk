@@ -12,7 +12,8 @@ typedef NS_ENUM(NSUInteger, IDPSquarePosition) {
     IDPSquareLeftTop,
     IDPSquareRightTop,
     IDPSquareRightBottom,
-    IDPSquareLeftBottom
+    IDPSquareLeftBottom,
+    IDPSquarePositionCount
 };
 
 @interface IDPSquareView : UIView
