@@ -77,7 +77,7 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 - (IDPSquarePosition)nextPosition {
     IDPSquarePosition position = self.squarePos;
     
-    if (position == IDPSquarePositionCount) {
+    if (position == IDPSquarePositionCount - 1) {
         position = IDPSquareLeftTop;
     } else {
         position++;
