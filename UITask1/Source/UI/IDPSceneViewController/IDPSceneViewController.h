@@ -11,5 +11,6 @@
 @interface IDPSceneViewController : UIViewController
 
 - (IBAction)onMoveButton:(id)sender;
+- (IBAction)onMoveNextPositionButton:(id)sender;
 
 @end

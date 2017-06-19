@@ -87,6 +87,10 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     }];
 }
 
+- (void)moveToNextPosition {
+    [self setSquarePosition:[self nextPosition] animated:YES];
+}
+
 - (CGPoint)centerPointWithPosition:(IDPSquarePosition)position {
     CGRect superViewFrame = [self.superview convertRect:self.superview.bounds toView:nil];
     CGRect frame = self.bounds;

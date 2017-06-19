@@ -38,4 +38,8 @@ IDPViewControllerBaseViewProperty(IDPSceneViewController, sceneView, IDPSceneVie
     [self.sceneView changeButtonTitle];
     self.sceneView.squareView.moving = !self.sceneView.squareView.moving;
 }
+
+- (IBAction)onMoveNextPositionButton:(id)sender {
+    [self.sceneView.squareView moveToNextPosition];
+}
 @end

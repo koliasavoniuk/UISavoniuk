@@ -23,4 +23,6 @@ typedef NS_ENUM(NSUInteger, IDPSquarePosition) {
 - (void)setSquarePosition:(IDPSquarePosition)position;
 - (void)setSquarePosition:(IDPSquarePosition)position animated:(BOOL)animated;
 
+- (void)moveToNextPosition;
+
 @end
