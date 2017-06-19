@@ -16,6 +16,7 @@ static const NSUInteger kIDPNameLength = 7;
 @implementation IDPUser
 
 @dynamic fullName;
+@dynamic image;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -36,6 +37,12 @@ static const NSUInteger kIDPNameLength = 7;
 
 - (NSString *)fullName {
     return [[NSString stringWithFormat:@"%@ %@", self.name, self.surname] capitalizedString];
+}
+
+- (UIImage *)image {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"idapLogo" ofType:@"png"];
+    
+    return [UIImage imageWithContentsOfFile:path];
 }
 
 @end

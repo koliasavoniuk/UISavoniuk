@@ -11,6 +11,7 @@
 #import "IDPUsersView.h"
 #import "IDPMacro.h"
 #import "IDPUser.h"
+#import "IDPUserCell.h"
 
 IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersView)
 
@@ -42,14 +43,16 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString * const kIDPCellName = @"kIDPCellName";
+    NSString *cellClass = NSStringFromClass([IDPUserCell class]);
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIDPCellName];
+    IDPUserCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClass];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIDPCellName];
+        UINib *nib = [UINib nibWithNibName:cellClass bundle:nil];
+        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
+        cell = [cells firstObject];
     }
     
-    cell.textLabel.text = self.user.fullName;
+    cell.user = self.user;
     
     return cell;
 }
