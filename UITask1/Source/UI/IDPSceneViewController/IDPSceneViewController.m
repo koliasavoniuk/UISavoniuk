@@ -35,7 +35,7 @@ IDPViewControllerBaseViewProperty(IDPSceneViewController, sceneView, IDPSceneVie
 #pragma mark Interface Handling
 
 - (IBAction)onMoveButton:(id)sender {
-    [self.sceneView.squareView moveSquare];
     [self.sceneView changeButtonTitle];
+    self.sceneView.squareView.moving = !self.sceneView.squareView.moving;
 }
 @end

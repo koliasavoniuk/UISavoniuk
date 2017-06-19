@@ -44,35 +44,44 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     }
     
     CGPoint point = [self centerPointWithPosition:position];
-
+    
     [UIView animateWithDuration:interval
                      animations:^{
-                        self.center = point;
-                        _squarePos = position;
-                    } completion:completion];
+                         self.center = point;
+                         NSLog(@"%lu", _squarePosition);
+                     } completion:^(BOOL finished){
+                         _squarePosition = position;
+                         
+                         if (completion) {
+                             completion(finished);
+                         }
+                     }];
 }
 
-#pragma mark -
-#pragma mark Public
-
-- (void)moveSquare {
-    self.moving = !self.moving;
-    [self runSquare];
+- (void)setMoving:(BOOL)moving {
+    if (_moving == moving) {
+        return;
+    }
+    
+    _moving = moving;
+    
+    if (moving) {
+        [self runSquare];
+    }
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (IDPSquarePosition)nextPosition {
-    return (self.squarePos + 1) % IDPSquarePositionCount;
+- (IDPSquarePosition)nextPosition {    
+    return (self.squarePosition + 1) % IDPSquarePositionCount;
 }
 
 - (void)runSquare {
     __weak IDPSquareView *weakSelfSquareView = self;
     
-    [self setSquarePosition:self.squarePos animated:YES completionHandler:^(BOOL finished) {
+    [self setSquarePosition:[self nextPosition] animated:YES completionHandler:^(BOOL finished) {
         if (weakSelfSquareView.moving) {
-            weakSelfSquareView.squarePos = weakSelfSquareView.nextPosition;
             [weakSelfSquareView runSquare];
         }
     }];
