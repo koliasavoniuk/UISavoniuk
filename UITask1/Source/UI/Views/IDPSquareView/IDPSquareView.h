@@ -17,14 +17,12 @@ typedef NS_ENUM(NSUInteger, IDPSquarePosition) {
 };
 
 @interface IDPSquareView : UIView
-@property (nonatomic, assign)                       IDPSquarePosition    squarePos;
-@property (nonatomic, readonly, getter=isMoving)    BOOL                 moving;
+@property (nonatomic, assign)   IDPSquarePosition   squarePos;
+@property (nonatomic, assign)   BOOL                moving;
 
+- (void)setSquarePosition:(IDPSquarePosition)position;
 - (void)setSquarePosition:(IDPSquarePosition)position animated:(BOOL)animated;
-- (void)setSquarePosition:(IDPSquarePosition)position
-                 animated:(BOOL)animated
-        completionHandler:(void (^)(BOOL finished))completion;
 
-- (void)tapButton;
+- (void)moveSquare;
 
 @end

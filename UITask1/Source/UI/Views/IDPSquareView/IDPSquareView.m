@@ -12,11 +12,6 @@
 
 static const CGFloat kIDPAnimationDuration = 1.0f;
 
-@interface IDPSquareView ()
-@property (nonatomic, assign)   BOOL    moving;
-
-@end
-
 @implementation IDPSquareView
 
 #pragma mark -
@@ -29,10 +24,6 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 #pragma mark -
 #pragma mark Accessors
 
-- (BOOL)isMoving {
-    return _moving;
-}
-
 - (void)setSquarePosition:(IDPSquarePosition)position {
     [self setSquarePosition:position animated:NO];
 
@@ -44,66 +35,56 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 
 - (void)setSquarePosition:(IDPSquarePosition)position
                  animated:(BOOL)animated
-        completionHandler:(void (^)(BOOL finished))completion {
-    
+        completionHandler:(void (^)(BOOL finished))completion
+{
     NSTimeInterval interval = 0;
     
     if (animated) {
         interval = kIDPAnimationDuration;
     }
     
-    CGPoint point = [self pointWithPosition:position];
-    point.x += (CGRectGetWidth(self.frame) / 2);
-    point.y += (CGRectGetHeight(self.frame) / 2);
-    
-    
-    [UIView animateWithDuration:interval animations:^{
-        self.center = point;
-    } completion:completion];
+    CGPoint point = [self centerPointWithPosition:position];
+
+    [UIView animateWithDuration:interval
+                     animations:^{
+                        self.center = point;
+                        _squarePos = position;
+                    } completion:completion];
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)tapButton {
+- (void)moveSquare {
     self.moving = !self.moving;
-    
-    [self endlessRunning];
+    [self runSquare];
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (IDPSquarePosition)nextPosition {
-    IDPSquarePosition position = self.squarePos;
-    
-    if (position == IDPSquarePositionCount - 1) {
-        position = IDPSquareLeftTop;
-    } else {
-        position++;
-    }
-    self.squarePos = position;
-    NSLog(@"%lu", position);
-    return self.squarePos;
+    return (self.squarePos + 1) % IDPSquarePositionCount;
 }
 
-- (void)endlessRunning {
+- (void)runSquare {
     __weak IDPSquareView *weakSelfSquareView = self;
     
     [self setSquarePosition:self.squarePos animated:YES completionHandler:^(BOOL finished) {
         if (weakSelfSquareView.moving) {
-            [weakSelfSquareView nextPosition];
-            [weakSelfSquareView endlessRunning];
+            weakSelfSquareView.squarePos = weakSelfSquareView.nextPosition;
+            [weakSelfSquareView runSquare];
         }
     }];
 }
 
-- (CGPoint)pointWithPosition:(IDPSquarePosition)position {
+- (CGPoint)centerPointWithPosition:(IDPSquarePosition)position {
     CGRect superViewFrame = [self.superview convertRect:self.superview.bounds toView:nil];
-    CGRect frame = self.frame;
+    CGRect frame = self.bounds;
     
-    CGPoint point = CGPointZero;
-    CGPoint bottomRight = CGPointMake(CGRectGetWidth(superViewFrame) - CGRectGetWidth(frame), CGRectGetHeight(superViewFrame) - CGRectGetHeight(frame));
+    CGPoint point = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
+    CGPoint bottomRight = CGPointMake(CGRectGetWidth(superViewFrame) - CGRectGetMidX(frame),
+                                      CGRectGetHeight(superViewFrame) - CGRectGetMidY(frame));
     
     switch (position) {
         case IDPSquareRightTop:
