@@ -42,6 +42,9 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
     [self editing];
 }
 
+//- (IBAction)onSorting:(id)sender {    
+//}
+
 #pragma mark -
 #pragma mark Private
 
@@ -70,6 +73,20 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
     cell.user = self.user;
     
     return cell;
+}
+
+#pragma mark -
+#pragma mark IDPUsersModelObserver
+
+- (void)arrayDidChange:(id)object {
+    UITableView *tableView = self.usersView.tableView;
+    NSUInteger users = [self.usersModel usersArrayCount];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:users - 1 inSection:0];
+    
+    [tableView beginUpdates];
+    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                     withRowAnimation:UITableViewRowAnimationFade];
+    [tableView endUpdates];
 }
 
 @end

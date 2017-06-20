@@ -8,6 +8,8 @@
 
 #import "IDPUsersView.h"
 
+#import "IDPUsersModel.h"
+
 @implementation IDPUsersView
 
 #pragma mark -

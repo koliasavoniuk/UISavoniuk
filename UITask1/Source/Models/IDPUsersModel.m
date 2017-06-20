@@ -65,8 +65,21 @@
     return self.mutableUsersArray.count;
 }
 
-- (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserByIndex:(NSUInteger)secondIndex {
+- (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex {
     [self.mutableUsersArray exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
+}
+
+#pragma mark -
+#pragma mark ObservableObject Method Override
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case IDPModelArrayDidChange:
+            return @selector(modelArrayDidChange:);
+            
+        default:
+            return [super selectorForState:state];
+    }
 }
 
 @end

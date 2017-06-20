@@ -13,6 +13,11 @@
 
 static const NSUInteger kIDPNameLength = 7;
 
+@interface IDPUser ()
+@property (nonatomic, assign)   NSMutableArray  *mutableUsersArray;
+
+@end
+
 @implementation IDPUser
 
 @dynamic fullName;
@@ -26,6 +31,7 @@ static const NSUInteger kIDPNameLength = 7;
     if (self) {
         self.name = [NSString randomStringWithLength:kIDPNameLength alphabet:[NSString lowercaseLetterAlphabet]];
         self.surname = [NSString randomStringWithLength:kIDPNameLength alphabet:[NSString lowercaseLetterAlphabet]];
+        self.mutableUsersArray = [NSMutableArray array];
 
     }
     

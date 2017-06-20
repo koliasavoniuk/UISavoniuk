@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "IDPUsersModelObserver.h"
+#import "IDPUsersModel.h"
+
 @class IDPUser;
 
-@interface IDPUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface IDPUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IDPUsersModelObserver>
 @property (nonatomic, strong)   IDPUser *user;
+@property (nonatomic, strong)   IDPUsersModel   *usersModel;
 
 - (IBAction)onEditing:(id)sender;
+//- (IBAction)onSorting:(id)sender;
 
 @end

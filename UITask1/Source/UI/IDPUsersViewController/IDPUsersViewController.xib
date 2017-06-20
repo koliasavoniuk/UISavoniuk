@@ -42,7 +42,11 @@
                                         <action selector="onEditing:" destination="-1" id="7kn-SI-tcm"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem systemItem="add" id="eqT-5v-7Iz"/>
+                                <barButtonItem systemItem="add" id="eqT-5v-7Iz">
+                                    <connections>
+                                        <action selector="onSorting:" destination="-1" id="C3R-gW-tzp"/>
+                                    </connections>
+                                </barButtonItem>
                             </rightBarButtonItems>
                         </navigationItem>
                     </items>

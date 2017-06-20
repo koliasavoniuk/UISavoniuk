@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760EAF501EF94D600039FD3D /* IDPObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EAF4F1EF94D600039FD3D /* IDPObservableObject.m */; };
 		7631033B1EF7EC4F00A32004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763103361EF7EC4F00A32004 /* Assets.xcassets */; };
 		7631033C1EF7EC4F00A32004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763103371EF7EC4F00A32004 /* LaunchScreen.storyboard */; };
 		7631033D1EF7EC4F00A32004 /* idapLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7631033A1EF7EC4F00A32004 /* idapLogo.png */; };
@@ -32,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		760EAF4E1EF94D600039FD3D /* IDPObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPObservableObject.h; sourceTree = "<group>"; };
+		760EAF4F1EF94D600039FD3D /* IDPObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPObservableObject.m; sourceTree = "<group>"; };
+		760EAF521EF94EDD0039FD3D /* IDPUsersModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUsersModelObserver.h; sourceTree = "<group>"; };
 		763103361EF7EC4F00A32004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		763103381EF7EC4F00A32004 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7631033A1EF7EC4F00A32004 /* idapLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idapLogo.png; sourceTree = "<group>"; };
@@ -84,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		760EAF4D1EF94D600039FD3D /* IDPObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				760EAF4E1EF94D600039FD3D /* IDPObservableObject.h */,
+				760EAF4F1EF94D600039FD3D /* IDPObservableObject.m */,
+			);
+			path = IDPObservableObject;
+			sourceTree = "<group>";
+		};
+		760EAF511EF94E9B0039FD3D /* IDPProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				760EAF521EF94EDD0039FD3D /* IDPUsersModelObserver.h */,
+			);
+			path = IDPProtocols;
+			sourceTree = "<group>";
+		};
 		763103351EF7EC4F00A32004 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +126,7 @@
 		7631033E1EF7EFD600A32004 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				760EAF4D1EF94D600039FD3D /* IDPObservableObject */,
 				763103431EF7F12500A32004 /* IDPTableViewCell */,
 			);
 			path = Classes;
@@ -207,6 +229,7 @@
 		7676E4691EF285D4000AEE4A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				760EAF511EF94E9B0039FD3D /* IDPProtocols */,
 				7676E4731EF2A3B6000AEE4A /* Categories */,
 				7631033E1EF7EFD600A32004 /* Classes */,
 				7664DBDB1EF900770029B8D7 /* IDPConstants.h */,
@@ -347,6 +370,7 @@
 				7676E46F1EF285D4000AEE4A /* IDPRandom.m in Sources */,
 				7676E4601EF2673E000AEE4A /* IDPUsersView.m in Sources */,
 				7676E4571EF26574000AEE4A /* IDPSquareView.m in Sources */,
+				760EAF501EF94D600039FD3D /* IDPObservableObject.m in Sources */,
 				7676E4681EF28549000AEE4A /* IDPUser.m in Sources */,
 				7676E4551EF26574000AEE4A /* IDPSceneViewController.m in Sources */,
 				7676E46E1EF285D4000AEE4A /* IDPMacro.m in Sources */,
