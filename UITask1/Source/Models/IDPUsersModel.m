@@ -8,6 +8,8 @@
 
 #import "IDPUsersModel.h"
 
+#import "IDPUser.h"
+
 @interface IDPUsersModel()
 @property (nonatomic, strong)   NSMutableArray  *mutableUsersArray;
 
@@ -20,8 +22,8 @@
 
 - (instancetype)init {
     self = [super init];
-    self.mutableUsersArray = [NSMutableArray array];
-    
+    self.mutableUsersArray = [NSMutableArray arrayWithArray: @[[IDPUser new]]];
+
     return self;
 }
 
@@ -43,6 +45,7 @@
 
 - (void)addObject:(id)object {
     [self.mutableUsersArray addObject:object];
+    self.state = IDPModelArrayDidChange;
 }
 
 - (void)addObjects:(NSArray *)objects {
@@ -53,6 +56,7 @@
 
 - (void)removeObject:(id)object {
     [self.mutableUsersArray removeObject:object];
+    self.state = IDPModelArrayDidChange;
 }
 
 - (void)removeObjects:(NSArray *)objects {
@@ -67,6 +71,10 @@
 
 - (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex {
     [self.mutableUsersArray exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
+}
+
+- (id)objectAtIndexedSubscript:(NSUInteger)index {
+    return self.mutableUsersArray[index];
 }
 
 #pragma mark -

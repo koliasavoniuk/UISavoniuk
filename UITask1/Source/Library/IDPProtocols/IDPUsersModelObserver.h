@@ -15,6 +15,6 @@ typedef NS_ENUM(NSUInteger, IDPUsersModelState) {
 @protocol IDPUsersModelObserver <NSObject>
 
 @optional
-- (void)arrayDidChange:(id)object;
+- (void)modelArrayDidChange:(id)object;
 
 @end

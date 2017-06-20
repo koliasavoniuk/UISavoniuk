@@ -24,4 +24,6 @@
 
 - (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex;
 
+- (id)objectAtIndexedSubscript:(NSUInteger)index;
+
 @end

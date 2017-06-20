@@ -31,7 +31,8 @@
     //TASK 2
     
     IDPUsersViewController *controller = [IDPUsersViewController new];
-    controller.user = [IDPUser new];
+    //controller.user = [IDPUser new];
+    controller.usersModel = [IDPUsersModel new];
     window.rootViewController = controller;
     
     //TASK3
