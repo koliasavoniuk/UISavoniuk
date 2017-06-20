@@ -36,6 +36,20 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 #pragma mark -
+#pragma mark Private
+
+- (IBAction)onEditing:(id)sender {
+    [self editing];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)editing {
+    [self.usersView.tableView setEditing:!self.usersView.tableView.editing animated:YES];
+}
+
+#pragma mark -
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

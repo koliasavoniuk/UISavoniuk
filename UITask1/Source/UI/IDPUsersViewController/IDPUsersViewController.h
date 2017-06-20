@@ -13,4 +13,6 @@
 @interface IDPUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)   IDPUser *user;
 
+- (IBAction)onEditing:(id)sender;
+
 @end

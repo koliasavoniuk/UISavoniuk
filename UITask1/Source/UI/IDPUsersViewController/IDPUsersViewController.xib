@@ -37,8 +37,12 @@
                         <navigationItem title="Best app ever" id="Jqp-l2-u6g">
                             <barButtonItem key="leftBarButtonItem" title="Sort" id="a1X-uL-7l4"/>
                             <rightBarButtonItems>
-                                <barButtonItem title="Remove" id="dcL-o0-dM6"/>
-                                <barButtonItem title="Add" id="eqT-5v-7Iz"/>
+                                <barButtonItem systemItem="edit" id="dcL-o0-dM6">
+                                    <connections>
+                                        <action selector="onEditing:" destination="-1" id="7kn-SI-tcm"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="add" id="eqT-5v-7Iz"/>
                             </rightBarButtonItems>
                         </navigationItem>
                     </items>

@@ -15,6 +15,7 @@
 		7631034F1EF7F52500A32004 /* IDPUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7631034E1EF7F52500A32004 /* IDPUserCell.xib */; };
 		7664DBDD1EF9009A0029B8D7 /* IDPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7664DBDC1EF9009A0029B8D7 /* IDPConstants.m */; };
 		7664DBE01EF902A60029B8D7 /* IDPUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */; };
+		7664DBE31EF911E90029B8D7 /* IDPImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7664DBE21EF911E90029B8D7 /* IDPImageModel.m */; };
 		7676E4541EF26574000AEE4A /* IDPSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E44C1EF26574000AEE4A /* IDPSceneView.m */; };
 		7676E4551EF26574000AEE4A /* IDPSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E44E1EF26574000AEE4A /* IDPSceneViewController.m */; };
 		7676E4561EF26574000AEE4A /* IDPSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7676E44F1EF26574000AEE4A /* IDPSceneViewController.xib */; };
@@ -43,6 +44,8 @@
 		7664DBDC1EF9009A0029B8D7 /* IDPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPConstants.m; sourceTree = "<group>"; };
 		7664DBDE1EF902A60029B8D7 /* IDPUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUsersModel.h; sourceTree = "<group>"; };
 		7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPUsersModel.m; sourceTree = "<group>"; };
+		7664DBE11EF911E90029B8D7 /* IDPImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPImageModel.h; sourceTree = "<group>"; };
+		7664DBE21EF911E90029B8D7 /* IDPImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPImageModel.m; sourceTree = "<group>"; };
 		7676E44B1EF26574000AEE4A /* IDPSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPSceneView.h; sourceTree = "<group>"; };
 		7676E44C1EF26574000AEE4A /* IDPSceneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPSceneView.m; sourceTree = "<group>"; };
 		7676E44D1EF26574000AEE4A /* IDPSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPSceneViewController.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				7676E4671EF28549000AEE4A /* IDPUser.m */,
 				7664DBDE1EF902A60029B8D7 /* IDPUsersModel.h */,
 				7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */,
+				7664DBE11EF911E90029B8D7 /* IDPImageModel.h */,
+				7664DBE21EF911E90029B8D7 /* IDPImageModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				7676E4681EF28549000AEE4A /* IDPUser.m in Sources */,
 				7676E4551EF26574000AEE4A /* IDPSceneViewController.m in Sources */,
 				7676E46E1EF285D4000AEE4A /* IDPMacro.m in Sources */,
+				7664DBE31EF911E90029B8D7 /* IDPImageModel.m in Sources */,
 				763103461EF7F12500A32004 /* IDPTableViewCell.m in Sources */,
 				7664DBDD1EF9009A0029B8D7 /* IDPConstants.m in Sources */,
 				767BCFAF1EEE781C0082B26F /* main.m in Sources */,
