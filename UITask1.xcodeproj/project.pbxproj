@@ -13,6 +13,8 @@
 		763103461EF7F12500A32004 /* IDPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 763103451EF7F12500A32004 /* IDPTableViewCell.m */; };
 		7631034D1EF7F4EB00A32004 /* IDPUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7631034C1EF7F4EB00A32004 /* IDPUserCell.m */; };
 		7631034F1EF7F52500A32004 /* IDPUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7631034E1EF7F52500A32004 /* IDPUserCell.xib */; };
+		7664DBDD1EF9009A0029B8D7 /* IDPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7664DBDC1EF9009A0029B8D7 /* IDPConstants.m */; };
+		7664DBE01EF902A60029B8D7 /* IDPUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */; };
 		7676E4541EF26574000AEE4A /* IDPSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E44C1EF26574000AEE4A /* IDPSceneView.m */; };
 		7676E4551EF26574000AEE4A /* IDPSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E44E1EF26574000AEE4A /* IDPSceneViewController.m */; };
 		7676E4561EF26574000AEE4A /* IDPSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7676E44F1EF26574000AEE4A /* IDPSceneViewController.xib */; };
@@ -37,6 +39,10 @@
 		7631034B1EF7F4EB00A32004 /* IDPUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUserCell.h; sourceTree = "<group>"; };
 		7631034C1EF7F4EB00A32004 /* IDPUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPUserCell.m; sourceTree = "<group>"; };
 		7631034E1EF7F52500A32004 /* IDPUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDPUserCell.xib; sourceTree = "<group>"; };
+		7664DBDB1EF900770029B8D7 /* IDPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPConstants.h; path = Classes/IDPConstants.h; sourceTree = "<group>"; };
+		7664DBDC1EF9009A0029B8D7 /* IDPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPConstants.m; sourceTree = "<group>"; };
+		7664DBDE1EF902A60029B8D7 /* IDPUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUsersModel.h; sourceTree = "<group>"; };
+		7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPUsersModel.m; sourceTree = "<group>"; };
 		7676E44B1EF26574000AEE4A /* IDPSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPSceneView.h; sourceTree = "<group>"; };
 		7676E44C1EF26574000AEE4A /* IDPSceneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPSceneView.m; sourceTree = "<group>"; };
 		7676E44D1EF26574000AEE4A /* IDPSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPSceneViewController.h; sourceTree = "<group>"; };
@@ -135,6 +141,8 @@
 			children = (
 				7676E4661EF28549000AEE4A /* IDPUser.h */,
 				7676E4671EF28549000AEE4A /* IDPUser.m */,
+				7664DBDE1EF902A60029B8D7 /* IDPUsersModel.h */,
+				7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +204,8 @@
 			children = (
 				7676E4731EF2A3B6000AEE4A /* Categories */,
 				7631033E1EF7EFD600A32004 /* Classes */,
+				7664DBDB1EF900770029B8D7 /* IDPConstants.h */,
+				7664DBDC1EF9009A0029B8D7 /* IDPConstants.m */,
 				7676E46A1EF285D4000AEE4A /* IDPMacro.h */,
 				7676E46B1EF285D4000AEE4A /* IDPMacro.m */,
 				7676E46C1EF285D4000AEE4A /* IDPRandom.h */,
@@ -325,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				767BCFB21EEE781C0082B26F /* IDPAppDelegate.m in Sources */,
+				7664DBE01EF902A60029B8D7 /* IDPUsersModel.m in Sources */,
 				7676E4771EF2A3B6000AEE4A /* NSString+IDPCategory.m in Sources */,
 				7631034D1EF7F4EB00A32004 /* IDPUserCell.m in Sources */,
 				7676E45C1EF26696000AEE4A /* IDPUsersViewController.m in Sources */,
@@ -335,6 +346,7 @@
 				7676E4551EF26574000AEE4A /* IDPSceneViewController.m in Sources */,
 				7676E46E1EF285D4000AEE4A /* IDPMacro.m in Sources */,
 				763103461EF7F12500A32004 /* IDPTableViewCell.m in Sources */,
+				7664DBDD1EF9009A0029B8D7 /* IDPConstants.m in Sources */,
 				767BCFAF1EEE781C0082B26F /* main.m in Sources */,
 				7676E4541EF26574000AEE4A /* IDPSceneView.m in Sources */,
 			);

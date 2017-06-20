@@ -12,6 +12,7 @@
 #import "IDPMacro.h"
 #import "IDPUser.h"
 #import "IDPUserCell.h"
+#import "IDPConstants.h"
 
 IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersView)
 
@@ -38,7 +39,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 300;
+    return kIDPRowsInSection;
 }
 
 
