@@ -19,5 +19,6 @@
 
 - (IBAction)onEditing:(id)sender;
 //- (IBAction)onSorting:(id)sender;
+- (IBAction)onAdd:(id)sender;
 
 @end

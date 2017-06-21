@@ -36,7 +36,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Buttons
 
 - (IBAction)onEditing:(id)sender {
     [self editing];
@@ -45,6 +45,10 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 //- (IBAction)onSorting:(id)sender {    
 //}
 
+- (IBAction)onAdd:(id)sender {
+    [self adding];
+}
+
 #pragma mark -
 #pragma mark Private
 
@@ -52,11 +56,15 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
     [self.usersView.tableView setEditing:!self.usersView.tableView.editing animated:YES];
 }
 
+- (void)adding {
+    NSLog(@"Add");
+    [self.usersModel addObject:[IDPUser new]];
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return kIDPRowsInSection;
     return self.usersModel.usersArrayCount;
 }
 

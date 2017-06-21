@@ -44,7 +44,7 @@
                                 </barButtonItem>
                                 <barButtonItem systemItem="add" id="eqT-5v-7Iz">
                                     <connections>
-                                        <action selector="onSorting:" destination="-1" id="C3R-gW-tzp"/>
+                                        <action selector="onAdd:" destination="-1" id="eZM-r2-kyc"/>
                                     </connections>
                                 </barButtonItem>
                             </rightBarButtonItems>
