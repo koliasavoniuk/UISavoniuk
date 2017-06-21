@@ -11,6 +11,7 @@
 #import "IDPSceneViewController.h"
 #import "IDPUsersViewController.h"
 #import "IDPUser.h"
+#import "UIWindow+IDPExtensions.h"
 
 @interface IDPAppDelegate ()
 
@@ -18,9 +19,8 @@
 
 @implementation IDPAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIWindow *window = [UIWindow initWindowWithSize];
     self.window = window;
     
     //TASK 1
@@ -31,7 +31,6 @@
     //TASK 2
     
     IDPUsersViewController *controller = [IDPUsersViewController new];
-    //controller.user = [IDPUser new];
     controller.usersModel = [IDPUsersModel new];
     window.rootViewController = controller;
     
