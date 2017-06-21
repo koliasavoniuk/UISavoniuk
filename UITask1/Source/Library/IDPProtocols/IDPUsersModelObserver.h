@@ -9,14 +9,12 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, IDPUsersModelState) {
-    IDPModelArrayDidChange,
-    IDPModelArrayDidFinishChange
+    IDPModelArrayAddObject,
 };
 
 @protocol IDPUsersModelObserver <NSObject>
 
 @optional
-- (void)modelArrayDidChange:(id)object;
-- (void)modelArrayDidFinishChange:(id)object;
+- (void)modelArrayAddObject:(id)object;
 
 @end

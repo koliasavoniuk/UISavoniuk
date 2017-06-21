@@ -35,7 +35,6 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
                         <navigationItem title="Best app ever" id="Jqp-l2-u6g">
-                            <barButtonItem key="leftBarButtonItem" title="Sort" id="a1X-uL-7l4"/>
                             <rightBarButtonItems>
                                 <barButtonItem systemItem="edit" id="dcL-o0-dM6">
                                     <connections>
@@ -58,6 +57,11 @@
             </connections>
             <point key="canvasLocation" x="-564.5" y="-28.5"/>
         </view>
+        <barButtonItem title="Sort" id="a1X-uL-7l4">
+            <connections>
+                <action selector="onSort:" destination="-1" id="Eal-ak-1UB"/>
+            </connections>
+        </barButtonItem>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

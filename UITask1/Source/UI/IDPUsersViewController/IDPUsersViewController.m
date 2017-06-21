@@ -50,9 +50,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
     [self editing];
 }
 
-//- (IBAction)onSorting:(id)sender {    
-//}
-
 - (IBAction)onAdd:(id)sender {
     [self adding];
 }
@@ -70,6 +67,10 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 #pragma mark -
 #pragma mark UITableViewDataSource
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.usersModel.usersArrayCount;
@@ -95,27 +96,30 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.usersModel removeObject:self.usersModel[indexPath.row]];
+        [self.usersView.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                                        withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [self.usersModel exchangeUserAtIndex:sourceIndexPath.row withUserAtIndex:destinationIndexPath.row];
 }
 
 #pragma mark -
 #pragma mark IDPUsersModelObserver
 
-- (void)modelArrayDidChange:(id)object {
-    NSLog(@"Notify");
+- (void)modelArrayAddObject:(id)object {
+    
     UITableView *tableView = self.usersView.tableView;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
+        
     [tableView beginUpdates];
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     [tableView endUpdates];
     
 }
 
-- (void)modelArrayDidFinishChange:(id)object {
-    
-}
 
 @end
