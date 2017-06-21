@@ -23,7 +23,7 @@
 
 - (instancetype)init {
     self = [super init];
-    
+    //self.state = IDPModelArrayDidFinishChange;
     [self createUsers:kIDPRowsInSection];
     
     return self;
@@ -60,7 +60,7 @@
 - (void)addObject:(id)object {
     [self.mutableUsersArray addObject:object];
     self.state = IDPModelArrayDidChange;
-    NSLog(@"count %lu", [self usersArrayCount]);
+    NSLog(@"Add, count = %lu", [self usersArrayCount]);
 }
 
 - (void)addObjects:(NSArray *)objects {
@@ -72,6 +72,7 @@
 - (void)removeObject:(id)object {
     [self.mutableUsersArray removeObject:object];
     self.state = IDPModelArrayDidChange;
+    NSLog(@"Remove, count = %lu", [self usersArrayCount]);
 }
 
 - (void)removeObjects:(NSArray *)objects {
@@ -96,9 +97,12 @@
 #pragma mark ObservableObject Method Override
 
 - (SEL)selectorForState:(NSUInteger)state {
+    NSLog(@"Selector for state");
     switch (state) {
         case IDPModelArrayDidChange:
             return @selector(modelArrayDidChange:);
+        case IDPModelArrayDidFinishChange:
+            return @selector(modelArrayDidFinishChange:);
             
         default:
             return [super selectorForState:state];

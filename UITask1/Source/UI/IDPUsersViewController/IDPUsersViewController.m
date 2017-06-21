@@ -21,6 +21,14 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark -
 #pragma mark Accessors
 
+- (void)setUsersModel:(IDPUsersModel *)usersModel {
+    if (_usersModel != usersModel) {
+        [_usersModel removeObserver:self];
+        _usersModel = usersModel;
+        [_usersModel addObserver:self];
+    }
+}
+
 #pragma mark -
 #pragma mark View Lifecycle
 
@@ -57,7 +65,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 - (void)adding {
-    NSLog(@"Add");
     [self.usersModel addObject:[IDPUser new]];
 }
 
@@ -88,8 +95,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.usersModel removeObject:self.usersModel[indexPath.row]];
-        [self.usersView.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                        withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -100,16 +105,17 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
     NSLog(@"Notify");
     UITableView *tableView = self.usersView.tableView;
     
-    [tableView reloadData];
-    /*
-    NSUInteger users = [self.usersModel usersArrayCount];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:users - 1 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     [tableView beginUpdates];
-    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     [tableView endUpdates];
-     */
+    
+}
+
+- (void)modelArrayDidFinishChange:(id)object {
+    
 }
 
 @end
