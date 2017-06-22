@@ -41,6 +41,10 @@
     }
 }
 
+- (NSUInteger)count {
+    return [self usersArrayCount];
+}
+
 #pragma mark -
 #pragma mark Private
 
@@ -51,6 +55,10 @@
     }
     
     return self;
+}
+
+- (NSUInteger)usersArrayCount {
+    return self.mutableUsersArray.count;
 }
 
 #pragma mark -
@@ -75,10 +83,6 @@
     for (id object in objects) {
         [self removeObject:object];
     }
-}
-
-- (NSUInteger)usersArrayCount {
-    return self.mutableUsersArray.count;
 }
 
 - (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex {

@@ -9,3 +9,4 @@
 #import "IDPConstants.h"
 
 const NSUInteger kIDPRowsInSection = 50;
+const NSUInteger kIDPNameLength = 7;

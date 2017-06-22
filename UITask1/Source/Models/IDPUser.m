@@ -9,9 +9,8 @@
 #import "IDPUser.h"
 
 #import "IDPRandom.h"
+#import "IDPConstants.h"
 #import "NSString+IDPCategory.h"
-
-static const NSUInteger kIDPNameLength = 7;
 
 @interface IDPUser ()
 @property (nonatomic, assign)   NSMutableArray  *mutableUsersArray;
@@ -21,7 +20,7 @@ static const NSUInteger kIDPNameLength = 7;
 @implementation IDPUser
 
 @dynamic fullName;
-@dynamic image;
+@dynamic imageURL;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -45,10 +44,11 @@ static const NSUInteger kIDPNameLength = 7;
     return [[NSString stringWithFormat:@"%@ %@", self.name, self.surname] capitalizedString];
 }
 
-- (UIImage *)image {
+- (NSURL *)imageURL {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"idapLogo" ofType:@"png"];
+    NSURL *urlPath = [NSURL URLWithString:path];
     
-    return [UIImage imageWithContentsOfFile:path];
+    return urlPath;
 }
 
 @end

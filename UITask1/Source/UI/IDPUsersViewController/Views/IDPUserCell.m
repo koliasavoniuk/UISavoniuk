@@ -28,8 +28,7 @@
 
 - (void)fillWithUser:(IDPUser *)user {
     self.fullNameLabel.text = user.fullName;
-    
-    self.userImageView.image = user.image;
+    self.userImageView.image = [UIImage imageWithContentsOfFile:[user.imageURL absoluteString]];
 }
 
 @end

@@ -9,3 +9,4 @@
 #import <Foundation/Foundation.h>
 
 extern const NSUInteger kIDPRowsInSection;
+extern const NSUInteger kIDPNameLength;

@@ -11,16 +11,15 @@
 #import "IDPObservableObject.h"
 #import "IDPUsersModelObserver.h"
 
-@interface IDPUsersModel : IDPObservableObject<IDPUsersModelObserver>
-@property (nonatomic, strong, readonly) NSArray *usersArray;
+@interface IDPUsersModel : IDPObservableObject
+@property (nonatomic, readonly) NSArray     *usersArray;
+@property (nonatomic, readonly) NSUInteger  count;
 
 - (void)addObject:(id)object;
 - (void)removeObject:(id)object;
 
 - (void)addObjects:(NSArray *)objects;
 - (void)removeObjects:(NSArray *)objects;
-
-- (NSUInteger)usersArrayCount;
 
 - (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex;
 

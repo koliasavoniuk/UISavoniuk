@@ -74,7 +74,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.usersModel.usersArrayCount;
+    return self.usersModel.count;
 }
 
 
