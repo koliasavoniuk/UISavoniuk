@@ -44,11 +44,8 @@
     return [[NSString stringWithFormat:@"%@ %@", self.name, self.surname] capitalizedString];
 }
 
-- (NSURL *)imageURL {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"idapLogo" ofType:@"png"];
-    NSURL *urlPath = [NSURL URLWithString:path];
-    
-    return urlPath;
+- (NSURL *)imageURL {   
+    return [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"idapLogo" ofType:@"png"]];
 }
 
 @end

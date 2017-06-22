@@ -38,7 +38,7 @@
                             <rightBarButtonItems>
                                 <barButtonItem systemItem="edit" id="dcL-o0-dM6">
                                     <connections>
-                                        <action selector="onEditing:" destination="-1" id="7kn-SI-tcm"/>
+                                        <action selector="onEdit:" destination="-1" id="ga1-rP-vjl"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem systemItem="add" id="eqT-5v-7Iz">

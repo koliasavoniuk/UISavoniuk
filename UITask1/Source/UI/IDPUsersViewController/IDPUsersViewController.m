@@ -47,7 +47,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark -
 #pragma mark Buttons
 
-- (IBAction)onEditing:(id)sender {
+- (IBAction)onEdit:(id)sender {
     [self editing];
 }
 
@@ -110,8 +110,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
     [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                      withRowAnimation:UITableViewRowAnimationFade];
     [tableView endUpdates];
-    
 }
-
 
 @end

@@ -17,7 +17,7 @@
 @property (nonatomic, strong)   IDPUser *user;
 @property (nonatomic, strong)   IDPUsersModel   *usersModel;
 
-- (IBAction)onEditing:(id)sender;
+- (IBAction)onEdit:(id)sender;
 - (IBAction)onAdd:(id)sender;
 
 @end
