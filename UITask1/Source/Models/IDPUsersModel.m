@@ -29,23 +29,6 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)usersArray {
-    return [self.usersArray copy];
-}
-
-- (void)setMutableUsersArray:(NSMutableArray *)mutableUsersArray {
-    if (mutableUsersArray != _mutableUsersArray) {
-        _mutableUsersArray = mutableUsersArray;
-    }
-}
-
-- (NSUInteger)count {
-    return [self usersArrayCount];
-}
-
-#pragma mark -
 #pragma mark Private
 
 - (instancetype)createUsers:(NSUInteger)count {
@@ -57,48 +40,12 @@
     return self;
 }
 
-- (NSUInteger)usersArrayCount {
-    return self.mutableUsersArray.count;
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)addObject:(id)object {
-    [self.mutableUsersArray addObject:object];
-    self.state = IDPModelArrayAddObject;
-}
-
-- (void)addObjects:(NSArray *)objects {
-    for (id object in objects) {
-        [self addObject:object];
-    }
-}
-
-- (void)removeObject:(id)object {
-    [self.mutableUsersArray removeObject:object];
-}
-
-- (void)removeObjects:(NSArray *)objects {
-    for (id object in objects) {
-        [self removeObject:object];
-    }
-}
-
-- (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex {
-    [self.mutableUsersArray exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
-}
-
-- (id)objectAtIndexedSubscript:(NSUInteger)index {
-    return self.mutableUsersArray[index];
-}
-
 #pragma mark -
 #pragma mark ObservableObject Method Override
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
-        case IDPModelArrayAddObject:
+        case IDPModelDidLoad:
             return @selector(modelArrayAddObject:);
             
         default:

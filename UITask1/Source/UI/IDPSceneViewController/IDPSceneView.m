@@ -18,7 +18,7 @@
 }
 
 - (void)changeButtonTitle {
-    [self.button setTitle:self.squareView.moving ? @"Stop" : @"Start" forState:UIControlStateNormal];
+    [self.button setTitle:self.squareView.moving ? @"Start" : @"Stop" forState:UIControlStateNormal];
 }
 
 @end

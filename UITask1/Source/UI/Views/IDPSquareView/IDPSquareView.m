@@ -12,6 +12,11 @@
 
 static const CGFloat kIDPAnimationDuration = 1.0f;
 
+@interface IDPSquareView()
+@property (nonatomic, assign)   BOOL   animating;
+
+@end
+
 @implementation IDPSquareView
 
 #pragma mark -
@@ -47,9 +52,11 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     
     [UIView animateWithDuration:interval
                      animations:^{
+                         self.animating = true;
                          self.center = point;
-                         NSLog(@"%lu", _squarePosition);
+
                      } completion:^(BOOL finished){
+                         self.animating = false;
                          _squarePosition = position;
                          
                          if (completion) {
@@ -65,7 +72,7 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
     
     _moving = moving;
     
-    if (moving) {
+    if (moving && !self.animating) {
         [self runSquare];
     }
 }
@@ -79,15 +86,18 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
 
 - (void)runSquare {
     __weak IDPSquareView *weakSelfSquareView = self;
-    
+
     [self setSquarePosition:[self nextPosition] animated:YES completionHandler:^(BOOL finished) {
         if (weakSelfSquareView.moving) {
             [weakSelfSquareView runSquare];
         }
     }];
+
 }
 
 - (void)moveToNextPosition {
+    if (self.animating) {return;}
+    
     [self setSquarePosition:[self nextPosition] animated:YES];
 }
 

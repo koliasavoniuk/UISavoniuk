@@ -41,7 +41,6 @@
 
 - (void)setState:(NSUInteger)state {
     @synchronized (self) {
-        NSLog(@"setState");
         if (_state != state) {
             _state = state;
         }
@@ -99,7 +98,6 @@
 
 - (void)notifyOfStateWithSelector:(SEL)selector {
     @synchronized (self) {
-        NSLog(@"NotifyOfStateWithSelector");
         NSSet *observers = self.observers;
         for (id observer in observers) {
             if ([observer respondsToSelector:selector]) {

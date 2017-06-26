@@ -1,20 +1,18 @@
 //
-//  IDPUsersModel.h
+//  IDPArrayModel.h
 //  UITask1
 //
-//  Created by Student002 on 6/20/17.
+//  Created by Student002 on 6/23/17.
 //  Copyright © 2017 Student002. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#import "IDPArrayModel.h"
-//#import "IDPObservableObject.h"
-#import "IDPUsersModelObserver.h"
+#import "IDPObservableObject.h"
 
-@interface IDPUsersModel : IDPArrayModel
-/*
-@property (nonatomic, readonly) NSArray     *usersArray;
+@interface IDPArrayModel : IDPObservableObject
+
+@property (nonatomic, readonly) NSArray     *modelsArray;
 @property (nonatomic, readonly) NSUInteger  count;
 
 - (void)addObject:(id)object;
@@ -23,8 +21,8 @@
 - (void)addObjects:(NSArray *)objects;
 - (void)removeObjects:(NSArray *)objects;
 
-- (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex;
+- (void)exchangeModelAtIndex:(NSUInteger)firstIndex withModelAtIndex:(NSUInteger)secondIndex;
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
-*/
+
 @end

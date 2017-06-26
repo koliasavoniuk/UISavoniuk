@@ -8,13 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, IDPUsersModelState) {
-    IDPModelArrayAddObject,
+typedef NS_ENUM(NSUInteger, IDPModelState) {
+    IDPModelDidLoad,
+    IDPModelDidUnload,
+    IDPModelDidFailLoading,
+    IDPModelDidChange,
+    IDPModelWillLoad,
 };
 
 @protocol IDPUsersModelObserver <NSObject>
 
 @optional
-- (void)modelArrayAddObject:(id)object;
+- (void)modelDidLoad:(id)object;
+- (void)modelDidUnload:(id)object;
+- (void)modelDidFailLoading:(id)object;
+- (void)modelDidChange:(id)object;
+- (void)modelWillLoad:(id)object;
 
 @end

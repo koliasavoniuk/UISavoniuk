@@ -94,7 +94,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    [self.usersModel exchangeUserAtIndex:sourceIndexPath.row withUserAtIndex:destinationIndexPath.row];
+    [self.usersModel exchangeModelAtIndex:sourceIndexPath.row withModelAtIndex:destinationIndexPath.row];
 }
 
 #pragma mark -
