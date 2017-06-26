@@ -12,5 +12,5 @@
 
 - (id)reusableCellWithClass:(Class)cls;
 - (id)reusableCellWithClassOrCreateNew:(Class)cls;
-
+- (void)updateWithBlock:(void(^)())block;
 @end

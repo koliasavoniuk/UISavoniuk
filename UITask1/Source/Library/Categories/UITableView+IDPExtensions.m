@@ -30,4 +30,10 @@
     return cell;
 }
 
+- (void)updateWithBlock:(void(^)())block {
+    [self beginUpdates];
+    block();
+    [self endUpdates];
+}
+
 @end

@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IDPChangeModel : NSObject
+#import <UIKit/UIKit.h>
 
-//+ (instancetype)
+@interface IDPChangeModel : NSObject
+@property (nonatomic, readonly) NSUInteger  index;
+
++ (instancetype)addArrayChangeWithIndex:(NSUInteger)index;
++ (instancetype)removeArrayChangeWithIndex:(NSUInteger)index;
 
 @end

@@ -14,13 +14,25 @@
 #import "IDPUserCell.h"
 #import "IDPConstants.h"
 #import "UITableView+IDPExtensions.h"
+#import "IDPChangeModel.h"
+#import "IDPChangeModel+UITableView.h"
 
 IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersView)
 
 @implementation IDPUsersViewController
 
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.usersModel = [IDPUsersModel new];
+    }
+    return self;
+}
 #pragma mark -
 #pragma mark Accessors
+
 
 - (void)setUsersModel:(IDPUsersModel *)usersModel {
     if (_usersModel != usersModel) {
@@ -77,7 +89,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
     return self.usersModel.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     IDPUserCell *cell = [tableView reusableCellWithClassOrCreateNew:[IDPUserCell class]];
     cell.user = self.usersModel[indexPath.row];
@@ -88,8 +99,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.usersModel removeObject:self.usersModel[indexPath.row]];
-        [self.usersView.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                        withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -100,6 +109,10 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark -
 #pragma mark IDPUsersModelObserver
 
+- (void)model:(id)model didChangeWithObject:(IDPChangeModel *)object {
+    [object applyToTableView:self.usersView.tableView];
+}
+/*
 - (void)modelArrayAddObject:(id)object {
     
     UITableView *tableView = self.usersView.tableView;
@@ -111,5 +124,5 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
                      withRowAnimation:UITableViewRowAnimationFade];
     [tableView endUpdates];
 }
-
+*/
 @end

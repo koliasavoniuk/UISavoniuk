@@ -12,7 +12,7 @@
 
 @interface IDPArrayModel : IDPObservableObject
 
-@property (nonatomic, readonly) NSArray     *modelsArray;
+@property (nonatomic, readonly) NSArray     *objectsArray;
 @property (nonatomic, readonly) NSUInteger  count;
 
 - (void)addObject:(id)object;

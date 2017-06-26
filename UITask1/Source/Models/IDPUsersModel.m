@@ -12,7 +12,6 @@
 #import "IDPConstants.h"
 
 @interface IDPUsersModel()
-@property (nonatomic, strong)   NSMutableArray  *mutableUsersArray;
 
 @end
 
@@ -31,10 +30,9 @@
 #pragma mark -
 #pragma mark Private
 
-- (instancetype)createUsers:(NSUInteger)count {
-    self.mutableUsersArray = [NSMutableArray array];
-    for (NSUInteger i = 0; i < count; i++) {
-        [self.mutableUsersArray addObject:[IDPUser new]];
+- (instancetype)createUsers:(NSUInteger)usersCount {
+    for (NSUInteger i = 0; i < usersCount; i++) {
+        [self addObject:[IDPUser new]];
     }
     
     return self;
@@ -45,8 +43,8 @@
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
-        case IDPModelDidLoad:
-            return @selector(modelArrayAddObject:);
+        case IDPModelDidChange:
+            return @selector(model:didChangeWithObject:);
             
         default:
             return [super selectorForState:state];

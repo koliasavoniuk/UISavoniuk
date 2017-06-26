@@ -14,7 +14,7 @@
 @class IDPUser;
 
 @interface IDPUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IDPUsersModelObserver>
-@property (nonatomic, strong)   IDPUser *user;
+@property (nonatomic, strong)   IDPUser         *user;
 @property (nonatomic, strong)   IDPUsersModel   *usersModel;
 
 - (IBAction)onEdit:(id)sender;

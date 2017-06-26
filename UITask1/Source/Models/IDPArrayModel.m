@@ -8,42 +8,56 @@
 
 #import "IDPArrayModel.h"
 
+#import "IDPChangeModel.h"
+#import "IDPUsersModelObserver.h"
+
 @interface IDPArrayModel()
-@property (nonatomic, strong)   NSMutableArray  *mutableModelsArray;
+@property (nonatomic, strong)   NSMutableArray  *mutableObjectsArray;
 
 @end
 
 @implementation IDPArrayModel
 
+@dynamic objectsArray;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.mutableObjectsArray = [NSMutableArray array];
+    }
+    
+    return self;
+}
+
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)modelsArray {
-    return [self.modelsArray copy];
-}
-
-- (void)setMutableModelsArray:(NSMutableArray *)mutableModelsArray {
-    if (mutableModelsArray != _mutableModelsArray) {
-        _mutableModelsArray = mutableModelsArray;
-    }
+- (NSArray *)objectsArray {
+    return [self.mutableObjectsArray copy];
 }
 
 - (NSUInteger)count {
-    return [self modelsArrayCount];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (NSUInteger)modelsArrayCount {
-    return self.mutableModelsArray.count;
+    return [self.mutableObjectsArray count];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)addObject:(id)object {
-    [self.mutableModelsArray addObject:object];
+    if (!object) {
+        return;
+    }
+    
+    [self.mutableObjectsArray addObject:object];
+    
+    NSMutableArray *array = self.mutableObjectsArray;
+    
+    IDPChangeModel *changeModel = [IDPChangeModel addArrayChangeWithIndex:[array indexOfObject:object]];
+    
+    [self notifyOfState:IDPModelDidChange withObject:changeModel];
 }
 
 - (void)addObjects:(NSArray *)objects {
@@ -53,7 +67,14 @@
 }
 
 - (void)removeObject:(id)object {
-    [self.mutableModelsArray removeObject:object];
+    NSMutableArray *array = self.mutableObjectsArray;
+    NSUInteger index = [array indexOfObject:object];
+    
+    [self.mutableObjectsArray removeObject:object];
+    
+    IDPChangeModel *changeModel = [IDPChangeModel removeArrayChangeWithIndex:index];
+    
+    [self notifyOfState:IDPModelDidChange withObject:changeModel];
 }
 
 - (void)removeObjects:(NSArray *)objects {
@@ -63,11 +84,11 @@
 }
 
 - (void)exchangeModelAtIndex:(NSUInteger)firstIndex withModelAtIndex:(NSUInteger)secondIndex {
-    [self.mutableModelsArray exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
+    [self.mutableObjectsArray exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
-    return self.mutableModelsArray[index];
+    return self.mutableObjectsArray[index];
 }
 
 @end

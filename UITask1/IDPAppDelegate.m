@@ -25,15 +25,15 @@
     
     //TASK 1
     
-    window.rootViewController = [IDPSceneViewController new];
+    //window.rootViewController = [IDPSceneViewController new];
      
     
     //TASK 2
-    /*
+    
     IDPUsersViewController *controller = [IDPUsersViewController new];
     controller.usersModel = [IDPUsersModel new];
     window.rootViewController = controller;
-    */
+    
     //TASK3
 
     [window makeKeyAndVisible];
@@ -46,7 +46,6 @@
 
 }
 
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
 }
@@ -56,11 +55,9 @@
 
 }
 
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 
 }
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 

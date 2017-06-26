@@ -8,6 +8,33 @@
 
 #import "IDPChangeModel.h"
 
+#import "IDPChangeModelProtected.h"
+
+#import "IDPChangeAdd.h"
+#import "IDPChangeRemove.h"
+
 @implementation IDPChangeModel
+
+#pragma mark -
+#pragma mark Class methods
+
++ (instancetype)addArrayChangeWithIndex:(NSUInteger)index {
+    return [[IDPChangeAdd alloc] initWithIndex:index];
+}
+
++ (instancetype)removeArrayChangeWithIndex:(NSUInteger)index {
+    return [[IDPChangeRemove alloc] initWithIndex:index];
+}
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithIndex:(NSUInteger)index {
+    self = [super init];
+    self.index = index;
+    
+    return self;
+}
+
 
 @end

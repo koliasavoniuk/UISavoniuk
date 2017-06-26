@@ -90,21 +90,39 @@
 }
 
 - (void)notifyOfState:(NSUInteger)state {
-    [self notifyOfStateWithSelector:[self selectorForState:state]];
+    [self notifyOfState:state withObject:nil];
+}
+
+- (void)notifyOfState:(NSUInteger)state withObject:(id)object {
+    [self notifyOfStateWithSelector:[self selectorForState:state]
+                                                withObject:object];
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
+    _state = state;
+    
+    [self notifyOfState:state withObject:object];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)notifyOfStateWithSelector:(SEL)selector {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+
+- (void)notifyOfStateWithSelector:(SEL)selector withObject:(id)object {
     @synchronized (self) {
         NSSet *observers = self.observers;
         for (id observer in observers) {
             if ([observer respondsToSelector:selector]) {
-                [observer performSelector:selector withObject:self];
+                [observer performSelector:selector
+                               withObject:self
+                               withObject:object];
             }
         }
     }
 }
+
+#pragma clang diagnostic pop
 
 @end

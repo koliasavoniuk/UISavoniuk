@@ -13,18 +13,5 @@
 #import "IDPUsersModelObserver.h"
 
 @interface IDPUsersModel : IDPArrayModel
-/*
-@property (nonatomic, readonly) NSArray     *usersArray;
-@property (nonatomic, readonly) NSUInteger  count;
 
-- (void)addObject:(id)object;
-- (void)removeObject:(id)object;
-
-- (void)addObjects:(NSArray *)objects;
-- (void)removeObjects:(NSArray *)objects;
-
-- (void)exchangeUserAtIndex:(NSUInteger)firstIndex withUserAtIndex:(NSUInteger)secondIndex;
-
-- (id)objectAtIndexedSubscript:(NSUInteger)index;
-*/
 @end
