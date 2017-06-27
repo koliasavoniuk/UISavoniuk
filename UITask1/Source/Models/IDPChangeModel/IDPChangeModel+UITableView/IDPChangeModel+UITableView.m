@@ -10,6 +10,7 @@
 
 #import "IDPChangeAdd.h"
 #import "IDPChangeRemove.h"
+#import "IDPChangeMove.h"
 
 #import "UITableView+IDPExtensions.h"
 
@@ -54,6 +55,22 @@
     
     [table updateWithBlock:^{
         [table deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+}
+
+@end
+
+@implementation IDPChangeMove (UITableView)
+
+#pragma mark -
+#pragma mark Overriding methods
+
+- (void)applyToTableView:(UITableView *)table section:(NSUInteger)section animation:(UITableViewRowAnimation)animation {
+    NSIndexPath *sourceIndexPath = [NSIndexPath indexPathForItem:self.index inSection:0];
+    NSIndexPath *destinationIndexPath = [NSIndexPath indexPathForItem:self.destinationIndex inSection:0];
+    
+    [table updateWithBlock:^{
+        [table moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
     }];
 }
 

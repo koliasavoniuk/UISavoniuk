@@ -91,4 +91,41 @@
     return self.mutableObjectsArray[index];
 }
 
+- (void)moveObjectAtIndex:(NSUInteger)sourceIndex withIndex:(NSUInteger)destinationIndex {
+    NSMutableArray *array = self.mutableObjectsArray;
+    id object = [array objectAtIndex:sourceIndex];
+    [array removeObject:array[sourceIndex]];
+    [array insertObject:object atIndex:destinationIndex];
+    
+    IDPChangeModel *changeModel = [IDPChangeModel moveArrayChangeWithSourceIndex:sourceIndex destanationIndex:destinationIndex];
+    
+    [self notifyOfState:IDPModelDidChange withObject:changeModel];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

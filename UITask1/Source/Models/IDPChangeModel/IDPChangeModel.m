@@ -12,6 +12,7 @@
 
 #import "IDPChangeAdd.h"
 #import "IDPChangeRemove.h"
+#import "IDPChangeMove.h"
 
 @implementation IDPChangeModel
 
@@ -24,6 +25,10 @@
 
 + (instancetype)removeArrayChangeWithIndex:(NSUInteger)index {
     return [[IDPChangeRemove alloc] initWithIndex:index];
+}
+
++ (instancetype)moveArrayChangeWithSourceIndex:(NSUInteger)sourceIndex destanationIndex:(NSUInteger)destinationIndex {
+    return [[IDPChangeMove alloc] initMoveArrayChangeWithSourceIndex:sourceIndex destinationIndex:destinationIndex];
 }
 
 #pragma mark -

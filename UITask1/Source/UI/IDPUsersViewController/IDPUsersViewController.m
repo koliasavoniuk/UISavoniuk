@@ -47,8 +47,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.usersView.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,7 +101,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    [self.usersModel exchangeModelAtIndex:sourceIndexPath.row withModelAtIndex:destinationIndexPath.row];
+    [self.usersModel moveObjectAtIndex:sourceIndexPath.row withIndex:destinationIndexPath.row];
 }
 
 #pragma mark -
@@ -112,17 +110,5 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 - (void)model:(id)model didChangeWithObject:(IDPChangeModel *)object {
     [object applyToTableView:self.usersView.tableView];
 }
-/*
-- (void)modelArrayAddObject:(id)object {
-    
-    UITableView *tableView = self.usersView.tableView;
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        
-    [tableView beginUpdates];
-    [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                     withRowAnimation:UITableViewRowAnimationFade];
-    [tableView endUpdates];
-}
-*/
+
 @end

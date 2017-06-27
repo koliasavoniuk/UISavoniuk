@@ -15,6 +15,7 @@
 		763103461EF7F12500A32004 /* IDPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 763103451EF7F12500A32004 /* IDPTableViewCell.m */; };
 		7631034D1EF7F4EB00A32004 /* IDPUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7631034C1EF7F4EB00A32004 /* IDPUserCell.m */; };
 		7631034F1EF7F52500A32004 /* IDPUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7631034E1EF7F52500A32004 /* IDPUserCell.xib */; };
+		76452FB21F023AF8006312E4 /* IDPChangeMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452FB11F023AF8006312E4 /* IDPChangeMove.m */; };
 		764F68571EFA939B0024411F /* UINib+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F68561EFA939B0024411F /* UINib+IDPExtensions.m */; };
 		764F685D1EFAA0AD0024411F /* UITableView+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F685C1EFAA0AD0024411F /* UITableView+IDPExtensions.m */; };
 		764F68601EFAAEB60024411F /* UIWindow+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F685F1EFAAEB60024411F /* UIWindow+IDPExtensions.m */; };
@@ -55,6 +56,8 @@
 		7631034B1EF7F4EB00A32004 /* IDPUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUserCell.h; sourceTree = "<group>"; };
 		7631034C1EF7F4EB00A32004 /* IDPUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPUserCell.m; sourceTree = "<group>"; };
 		7631034E1EF7F52500A32004 /* IDPUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDPUserCell.xib; sourceTree = "<group>"; };
+		76452FB01F023AF8006312E4 /* IDPChangeMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPChangeMove.h; sourceTree = "<group>"; };
+		76452FB11F023AF8006312E4 /* IDPChangeMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPChangeMove.m; sourceTree = "<group>"; };
 		764F68551EFA939B0024411F /* UINib+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+IDPExtensions.h"; sourceTree = "<group>"; };
 		764F68561EFA939B0024411F /* UINib+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+IDPExtensions.m"; sourceTree = "<group>"; };
 		764F685B1EFAA0AD0024411F /* UITableView+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+IDPExtensions.h"; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 		7677AE761EFD2CA300A8C978 /* IDPChangeMove */ = {
 			isa = PBXGroup;
 			children = (
+				76452FB01F023AF8006312E4 /* IDPChangeMove.h */,
+				76452FB11F023AF8006312E4 /* IDPChangeMove.m */,
 			);
 			path = IDPChangeMove;
 			sourceTree = "<group>";
@@ -498,6 +503,7 @@
 				761BD2FF1F0111FA001DE314 /* IDPChangeModel+UITableView.m in Sources */,
 				764F68631EFAB2AA0024411F /* UIViewController+IDPExtensions.m in Sources */,
 				7677AE691EFD1AC500A8C978 /* IDPRandom.m in Sources */,
+				76452FB21F023AF8006312E4 /* IDPChangeMove.m in Sources */,
 				767BCFAF1EEE781C0082B26F /* main.m in Sources */,
 				7677AE6D1EFD1B3800A8C978 /* IDPConstants.m in Sources */,
 				7677AE611EFD19C300A8C978 /* NSArray+IDPExtensions.m in Sources */,
