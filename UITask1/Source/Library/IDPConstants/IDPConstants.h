@@ -10,3 +10,9 @@
 
 extern const NSUInteger kIDPRowsInSection;
 extern const NSUInteger kIDPNameLength;
+extern NSString * const kIDPFileName;
+extern NSString * const kIDPImageName;
+extern NSString * const kIDPImageExtension;
+extern NSString * const kIDPKeyName;
+extern NSString * const kIDPKeySurname;
+extern NSString * const kIDPKeyImageURL;

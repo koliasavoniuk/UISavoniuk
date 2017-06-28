@@ -13,11 +13,18 @@
 @implementation IDPUsersView
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Initializations and Deallocations
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    
+    return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    
+    return self;
+}
 
 @end

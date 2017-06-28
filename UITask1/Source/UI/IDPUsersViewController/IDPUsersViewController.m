@@ -33,7 +33,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark -
 #pragma mark Accessors
 
-
 - (void)setUsersModel:(IDPUsersModel *)usersModel {
     if (_usersModel != usersModel) {
         [_usersModel removeObserver:self];
@@ -109,6 +108,11 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 - (void)model:(id)model didChangeWithObject:(IDPChangeModel *)object {
     [object applyToTableView:self.usersView.tableView];
+}
+
+- (void)modelDidLoad:(id)object {
+    [self.usersView.tableView reloadData];
+    NSLog(@"modelDidLoad");
 }
 
 @end

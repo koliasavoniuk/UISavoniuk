@@ -23,8 +23,6 @@
 
 - (void)moveObjectAtIndex:(NSUInteger)sourceIndex withIndex:(NSUInteger)destinationIndex;
 
-- (void)exchangeModelAtIndex:(NSUInteger)firstIndex withModelAtIndex:(NSUInteger)secondIndex;
-
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 @end

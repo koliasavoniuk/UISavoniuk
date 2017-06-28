@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #import "IDPArrayModel.h"
-//#import "IDPObservableObject.h"
 #import "IDPUsersModelObserver.h"
 
 @interface IDPUsersModel : IDPArrayModel
+
+- (void)serializeObjectsArray;
+- (void)deserializeObjectsArray;
 
 @end

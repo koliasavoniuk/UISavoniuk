@@ -16,6 +16,7 @@
 		7631034D1EF7F4EB00A32004 /* IDPUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7631034C1EF7F4EB00A32004 /* IDPUserCell.m */; };
 		7631034F1EF7F52500A32004 /* IDPUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7631034E1EF7F52500A32004 /* IDPUserCell.xib */; };
 		76452FB21F023AF8006312E4 /* IDPChangeMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452FB11F023AF8006312E4 /* IDPChangeMove.m */; };
+		76452FB61F025BB0006312E4 /* IDPGCDWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76452FB51F025BB0006312E4 /* IDPGCDWrapper.m */; };
 		764F68571EFA939B0024411F /* UINib+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F68561EFA939B0024411F /* UINib+IDPExtensions.m */; };
 		764F685D1EFAA0AD0024411F /* UITableView+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F685C1EFAA0AD0024411F /* UITableView+IDPExtensions.m */; };
 		764F68601EFAAEB60024411F /* UIWindow+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F685F1EFAAEB60024411F /* UIWindow+IDPExtensions.m */; };
@@ -58,6 +59,8 @@
 		7631034E1EF7F52500A32004 /* IDPUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDPUserCell.xib; sourceTree = "<group>"; };
 		76452FB01F023AF8006312E4 /* IDPChangeMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPChangeMove.h; sourceTree = "<group>"; };
 		76452FB11F023AF8006312E4 /* IDPChangeMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPChangeMove.m; sourceTree = "<group>"; };
+		76452FB41F025BB0006312E4 /* IDPGCDWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPGCDWrapper.h; sourceTree = "<group>"; };
+		76452FB51F025BB0006312E4 /* IDPGCDWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPGCDWrapper.m; sourceTree = "<group>"; };
 		764F68551EFA939B0024411F /* UINib+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+IDPExtensions.h"; sourceTree = "<group>"; };
 		764F68561EFA939B0024411F /* UINib+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+IDPExtensions.m"; sourceTree = "<group>"; };
 		764F685B1EFAA0AD0024411F /* UITableView+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+IDPExtensions.h"; sourceTree = "<group>"; };
@@ -191,6 +194,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		76452FB31F025BB0006312E4 /* IDPGCD */ = {
+			isa = PBXGroup;
+			children = (
+				76452FB41F025BB0006312E4 /* IDPGCDWrapper.h */,
+				76452FB51F025BB0006312E4 /* IDPGCDWrapper.m */,
+			);
+			path = IDPGCD;
+			sourceTree = "<group>";
+		};
 		7676E4471EF26574000AEE4A /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +282,7 @@
 		7676E4691EF285D4000AEE4A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				76452FB31F025BB0006312E4 /* IDPGCD */,
 				760EAF511EF94E9B0039FD3D /* IDPProtocols */,
 				7676E4731EF2A3B6000AEE4A /* Categories */,
 				7677AE621EFD1AC500A8C978 /* IDPMacro */,
@@ -483,6 +496,7 @@
 			files = (
 				767BCFB21EEE781C0082B26F /* IDPAppDelegate.m in Sources */,
 				7664DBE01EF902A60029B8D7 /* IDPUsersModel.m in Sources */,
+				76452FB61F025BB0006312E4 /* IDPGCDWrapper.m in Sources */,
 				768952591F00FDC5004E5618 /* IDPChangeRemove.m in Sources */,
 				764F68601EFAAEB60024411F /* UIWindow+IDPExtensions.m in Sources */,
 				7677AE701EFD1B7F00A8C978 /* IDPArrayModel.m in Sources */,

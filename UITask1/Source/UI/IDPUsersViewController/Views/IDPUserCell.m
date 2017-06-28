@@ -9,8 +9,24 @@
 #import "IDPUserCell.h"
 
 #import "IDPUser.h"
+#import "IDPConstants.h"
 
 @implementation IDPUserCell
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    return[super initWithCoder:coder];
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [super encodeWithCoder:coder];
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -28,7 +44,7 @@
 
 - (void)fillWithUser:(IDPUser *)user {
     self.fullNameLabel.text = user.fullName;
-    self.userImageView.image = [UIImage imageWithContentsOfFile:[user.imageURL absoluteString]];
+    self.userImageView.image = [UIImage imageWithContentsOfFile:user.imageURL];
 }
 
 @end

@@ -10,8 +10,12 @@
 
 #import "IDPUser.h"
 #import "IDPConstants.h"
+#import "IDPGCDWrapper.h"
 
 @interface IDPUsersModel()
+@property (nonatomic, strong)   NSURL   *url;
+
+- (NSURL *)applicationDocumentsDirectory;
 
 @end
 
@@ -22,20 +26,34 @@
 
 - (instancetype)init {
     self = [super init];
-    [self createUsers:kIDPRowsInSection];
+    self.url = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:kIDPFileName];
     
     return self;
 }
 
 #pragma mark -
+#pragma mark Public
+
+- (void)serializeObjectsArray {
+    [NSKeyedArchiver archiveRootObject:self.objectsArray toFile:self.url.path];
+}
+
+- (void)deserializeObjectsArray {
+    IDPDispatchAsyncInBackground(^{
+        NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.url.path];
+        [self addObjects:array];
+
+        IDPDispatchSyncOnMainQueue(^{
+            self.state = IDPModelDidLoad;
+        });
+    });
+}
+
+#pragma mark -
 #pragma mark Private
 
-- (instancetype)createUsers:(NSUInteger)usersCount {
-    for (NSUInteger i = 0; i < usersCount; i++) {
-        [self addObject:[IDPUser new]];
-    }
-    
-    return self;
+- (NSURL *)applicationDocumentsDirectory {
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 #pragma mark -
@@ -45,6 +63,9 @@
     switch (state) {
         case IDPModelDidChange:
             return @selector(model:didChangeWithObject:);
+         
+        case IDPModelDidLoad:
+            return @selector(modelDidLoad:);
             
         default:
             return [super selectorForState:state];

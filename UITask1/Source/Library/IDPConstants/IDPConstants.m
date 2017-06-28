@@ -10,3 +10,9 @@
 
 const NSUInteger kIDPRowsInSection = 5;
 const NSUInteger kIDPNameLength = 7;
+NSString * const kIDPFileName = @"IDPModelsArray.plist";
+NSString * const kIDPImageName = @"idapLogo";
+NSString * const kIDPImageExtension = @"png";
+NSString * const kIDPKeyName = @"name";
+NSString * const kIDPKeySurname = @"surname";
+NSString * const kIDPKeyImageURL = @"imageURL";

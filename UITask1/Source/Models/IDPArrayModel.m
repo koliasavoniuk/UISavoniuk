@@ -52,11 +52,8 @@
     }
     
     [self.mutableObjectsArray addObject:object];
-    
     NSMutableArray *array = self.mutableObjectsArray;
-    
     IDPChangeModel *changeModel = [IDPChangeModel addArrayChangeWithIndex:[array indexOfObject:object]];
-    
     [self notifyOfState:IDPModelDidChange withObject:changeModel];
 }
 
@@ -83,10 +80,6 @@
     }
 }
 
-- (void)exchangeModelAtIndex:(NSUInteger)firstIndex withModelAtIndex:(NSUInteger)secondIndex {
-    [self.mutableObjectsArray exchangeObjectAtIndex:firstIndex withObjectAtIndex:secondIndex];
-}
-
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
     return self.mutableObjectsArray[index];
 }
@@ -101,31 +94,5 @@
     
     [self notifyOfState:IDPModelDidChange withObject:changeModel];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

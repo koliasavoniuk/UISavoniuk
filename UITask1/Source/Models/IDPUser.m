@@ -13,14 +13,13 @@
 #import "NSString+IDPCategory.h"
 
 @interface IDPUser ()
-@property (nonatomic, assign)   NSMutableArray  *mutableUsersArray;
+@property (nonatomic, strong)   NSString    *imageURL;
 
 @end
 
 @implementation IDPUser
 
 @dynamic fullName;
-@dynamic imageURL;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -30,11 +29,26 @@
     if (self) {
         self.name = [NSString randomStringWithLength:kIDPNameLength alphabet:[NSString lowercaseLetterAlphabet]];
         self.surname = [NSString randomStringWithLength:kIDPNameLength alphabet:[NSString lowercaseLetterAlphabet]];
-        self.mutableUsersArray = [NSMutableArray array];
 
     }
     
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [self init];
+    
+    self.name = [coder decodeObjectForKey:kIDPKeyName];
+    self.surname = [coder decodeObjectForKey:kIDPKeySurname];
+    self.imageURL = [coder decodeObjectForKey:kIDPKeyImageURL];
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.name forKey:kIDPKeyName];
+    [coder encodeObject:self.surname forKey:kIDPKeySurname];
+    [coder encodeObject:self.imageURL forKey:kIDPKeyImageURL];
 }
 
 #pragma mark -
@@ -44,8 +58,9 @@
     return [[NSString stringWithFormat:@"%@ %@", self.name, self.surname] capitalizedString];
 }
 
-- (NSURL *)imageURL {   
-    return [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"idapLogo" ofType:@"png"]];
+- (NSString *)imageURL {
+    return [[NSBundle mainBundle] pathForResource:kIDPImageName ofType:kIDPImageExtension];
+    
 }
 
 @end

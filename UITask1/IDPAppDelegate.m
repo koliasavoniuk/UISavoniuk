@@ -11,9 +11,11 @@
 #import "IDPSceneViewController.h"
 #import "IDPUsersViewController.h"
 #import "IDPUser.h"
+#import "IDPUsersModel.h"
 #import "UIWindow+IDPExtensions.h"
 
 @interface IDPAppDelegate ()
+@property (nonatomic, assign)   IDPUsersViewController  *viewController;
 
 @end
 
@@ -31,9 +33,13 @@
     //TASK 2
     
     IDPUsersViewController *controller = [IDPUsersViewController new];
-    controller.usersModel = [IDPUsersModel new];
-    window.rootViewController = controller;
+    IDPUsersModel *usersModel = [IDPUsersModel new];
+    [usersModel deserializeObjectsArray];
     
+    controller.usersModel = usersModel;
+    window.rootViewController = controller;
+    self.viewController = controller;
+
     //TASK3
 
     [window makeKeyAndVisible];
@@ -47,7 +53,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-
+    [self.viewController.usersModel serializeObjectsArray];
 }
 
 
@@ -60,7 +66,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    [self.viewController.usersModel serializeObjectsArray];
 }
 
 
