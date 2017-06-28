@@ -10,13 +10,17 @@
 
 @interface UINib (IDPExtensions)
 
-NS_ASSUME_NONNULL_BEGIN
 
-+ (instancetype)nibWithClass:(Class)cls;
-+ (instancetype)nibWithClass:(Class)cls bundle:( NSBundle * _Nullable)bundle;
++ (instancetype)nibWithClass:(Class)viewClass;
++ (instancetype)nibWithClass:(Class)viewClass bundle:(NSBundle *)bundle;
 
-+ (id)objectFromNibWithClass:(Class)cls;
++ (id)objectWithClass:(Class)cls;
++ (id)objectWithClass:(Class)cls owner:(id)owner;
++ (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options;
 
-NS_ASSUME_NONNULL_END
+
+- (id)objectWithClass:(Class)cls;
+- (id)objectWithClass:(Class)cls owner:(id)owner;
+- (id)objectWithClass:(Class)cls owner:(id)owner options:(NSDictionary *)options;
 
 @end

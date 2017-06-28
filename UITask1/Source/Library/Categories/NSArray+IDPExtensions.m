@@ -35,4 +35,12 @@
     return [self filteredArrayUsingPredicate:predicate];
 }
 
+- (id)objectWithClass:(Class)class {
+    NSArray *array = [self arrayByFilteringWithBlock:^BOOL(id object){
+        return [object isMemberOfClass:class];
+    }];
+    
+    return [array firstObject];
+}
+
 @end

@@ -13,9 +13,11 @@
 #import "IDPUser.h"
 #import "IDPUserCell.h"
 #import "IDPConstants.h"
-#import "UITableView+IDPExtensions.h"
 #import "IDPChangeModel.h"
+#import "IDPLoadingView.h"
+
 #import "IDPChangeModel+UITableView.h"
+#import "UITableView+IDPExtensions.h"
 
 IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersView)
 
@@ -46,6 +48,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.usersView.loadingView showLoading];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +69,12 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 #pragma mark -
 #pragma mark Private
+
+- (void)hideLoadingView {
+    IDPUsersView *usersView = self.usersView;
+    [usersView.loadingView hideLoading];
+    [usersView.tableView reloadData];
+}
 
 - (void)editing {
     [self.usersView.tableView setEditing:!self.usersView.tableView.editing animated:YES];
@@ -111,8 +120,9 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 - (void)modelDidLoad:(id)object {
-    [self.usersView.tableView reloadData];
-    NSLog(@"modelDidLoad");
+    //[self.usersView.tableView reloadData];
+    //NSLog(@"modelDidLoad");
+    [self hideLoadingView];
 }
 
 @end

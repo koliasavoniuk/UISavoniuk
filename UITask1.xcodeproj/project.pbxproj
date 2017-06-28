@@ -22,6 +22,8 @@
 		764F68601EFAAEB60024411F /* UIWindow+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F685F1EFAAEB60024411F /* UIWindow+IDPExtensions.m */; };
 		764F68631EFAB2AA0024411F /* UIViewController+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 764F68621EFAB2AA0024411F /* UIViewController+IDPExtensions.m */; };
 		7664DBE01EF902A60029B8D7 /* IDPUsersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */; };
+		7665471F1F03AD2700CD6273 /* IDPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7665471E1F03AD2700CD6273 /* IDPLoadingView.m */; };
+		766547211F03AD4600CD6273 /* IDPLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766547201F03AD4600CD6273 /* IDPLoadingView.xib */; };
 		7676E4541EF26574000AEE4A /* IDPSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E44C1EF26574000AEE4A /* IDPSceneView.m */; };
 		7676E4551EF26574000AEE4A /* IDPSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7676E44E1EF26574000AEE4A /* IDPSceneViewController.m */; };
 		7676E4561EF26574000AEE4A /* IDPSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7676E44F1EF26574000AEE4A /* IDPSceneViewController.xib */; };
@@ -71,6 +73,9 @@
 		764F68621EFAB2AA0024411F /* UIViewController+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IDPExtensions.m"; sourceTree = "<group>"; };
 		7664DBDE1EF902A60029B8D7 /* IDPUsersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUsersModel.h; sourceTree = "<group>"; };
 		7664DBDF1EF902A60029B8D7 /* IDPUsersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPUsersModel.m; sourceTree = "<group>"; };
+		7665471D1F03AD2700CD6273 /* IDPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPLoadingView.h; sourceTree = "<group>"; };
+		7665471E1F03AD2700CD6273 /* IDPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPLoadingView.m; sourceTree = "<group>"; };
+		766547201F03AD4600CD6273 /* IDPLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDPLoadingView.xib; sourceTree = "<group>"; };
 		7676E44B1EF26574000AEE4A /* IDPSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPSceneView.h; sourceTree = "<group>"; };
 		7676E44C1EF26574000AEE4A /* IDPSceneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPSceneView.m; sourceTree = "<group>"; };
 		7676E44D1EF26574000AEE4A /* IDPSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPSceneViewController.h; sourceTree = "<group>"; };
@@ -203,6 +208,16 @@
 			path = IDPGCD;
 			sourceTree = "<group>";
 		};
+		7665471C1F03ACD700CD6273 /* IDPLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				7665471D1F03AD2700CD6273 /* IDPLoadingView.h */,
+				7665471E1F03AD2700CD6273 /* IDPLoadingView.m */,
+				766547201F03AD4600CD6273 /* IDPLoadingView.xib */,
+			);
+			path = IDPLoadingView;
+			sourceTree = "<group>";
+		};
 		7676E4471EF26574000AEE4A /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +267,7 @@
 		7676E4501EF26574000AEE4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7665471C1F03ACD700CD6273 /* IDPLoadingView */,
 				7676E4511EF26574000AEE4A /* IDPSquareView */,
 			);
 			path = Views;
@@ -483,6 +499,7 @@
 				7631033C1EF7EC4F00A32004 /* LaunchScreen.storyboard in Resources */,
 				7631033D1EF7EC4F00A32004 /* idapLogo.png in Resources */,
 				7631033B1EF7EC4F00A32004 /* Assets.xcassets in Resources */,
+				766547211F03AD4600CD6273 /* IDPLoadingView.xib in Resources */,
 				7676E45D1EF26696000AEE4A /* IDPUsersViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7665471F1F03AD2700CD6273 /* IDPLoadingView.m in Sources */,
 				767BCFB21EEE781C0082B26F /* IDPAppDelegate.m in Sources */,
 				7664DBE01EF902A60029B8D7 /* IDPUsersModel.m in Sources */,
 				76452FB61F025BB0006312E4 /* IDPGCDWrapper.m in Sources */,

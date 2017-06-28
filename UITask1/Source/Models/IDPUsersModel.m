@@ -42,7 +42,8 @@
     IDPDispatchAsyncInBackground(^{
         NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.url.path];
         [self addObjects:array];
-
+        sleep(2);
+        
         IDPDispatchSyncOnMainQueue(^{
             self.state = IDPModelDidLoad;
         });

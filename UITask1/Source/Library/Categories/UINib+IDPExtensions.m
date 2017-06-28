@@ -12,27 +12,42 @@
 
 @implementation UINib (IDPExtensions)
 
-+ (instancetype)nibWithClass:(Class)class {
-    return [self nibWithClass:class bundle:nil];
++ (instancetype)nibWithClass:(Class)viewClass {
+    return [self nibWithClass:viewClass bundle:nil];
 }
 
-+ (instancetype)nibWithClass:(Class)class bundle:( NSBundle * _Nullable)bundle {
-    NSString *nibClass = NSStringFromClass(class);
-    
-    return [UINib nibWithNibName:nibClass bundle:bundle];
++ (instancetype)nibWithClass:(Class)viewClass bundle:(NSBundle *)bundle {
+    return [self nibWithNibName:NSStringFromClass(viewClass) bundle:bundle];
 }
 
-+ (id)objectFromNibWithClass:(Class)class {
-    UINib *nib = [UINib nibWithClass:class];
-    NSArray *objects = [nib instantiateWithOwner:nil options:nil];
++ (id)objectWithClass:(Class)class {
+    return [self objectWithClass:class owner:nil];
+}
+
++ (id)objectWithClass:(Class)class owner:(id)owner {
+    return [self objectWithClass:class owner:owner options:nil];
+}
++ (id)objectWithClass:(Class)class owner:(id)owner options:(NSDictionary *)options {
+    UINib *nib = [UINib nibWithClass:class bundle:nil];
     
-    NSArray *result = [objects arrayByFilteringWithBlock:^(id object){
-        return [object isMemberOfClass:class];
-    }];
+    return [nib objectWithClass:class owner:owner options:options];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (id)objectWithClass:(Class)class {
+    return [self objectWithClass:class owner:nil];
+}
+
+- (id)objectWithClass:(Class)class owner:(id)owner {
+    return [self objectWithClass:class owner:owner options:nil];
+}
+
+- (id)objectWithClass:(Class)class owner:(id)owner options:(NSDictionary *)options {
+    NSArray *objects = [self instantiateWithOwner:owner options:options];
     
-    id object = [result firstObject];
-    
-    return object;
+    return [objects objectWithClass:class];
 }
 
 @end
