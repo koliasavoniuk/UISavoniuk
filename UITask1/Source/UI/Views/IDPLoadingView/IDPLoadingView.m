@@ -15,14 +15,14 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)loadingViewFromNibWithSuperView:(UIView *)superView {
-    return [[self alloc] initFromNibWithSuperView:superView];
++ (instancetype)loadingViewFromNibWithSuperview:(UIView *)superView {
+    return [[self alloc] initFromNibWithSuperview:superView];
 }
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)initFromNibWithSuperView:(UIView *)superView {
+- (instancetype)initFromNibWithSuperview:(UIView *)superView {
     IDPLoadingView *loadingView = [UINib objectWithClass:[self class]];
     loadingView.frame = superView.bounds;
     [superView addSubview:loadingView];
