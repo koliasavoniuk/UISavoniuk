@@ -54,7 +54,7 @@
     [self.mutableObjectsArray addObject:object];
     NSMutableArray *array = self.mutableObjectsArray;
     IDPChangeModel *changeModel = [IDPChangeModel addArrayChangeWithIndex:[array indexOfObject:object]];
-    [self notifyOfState:IDPModelDidChange withObject:changeModel];
+    [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
 }
 
 - (void)addObjects:(NSArray *)objects {
@@ -71,7 +71,7 @@
     
     IDPChangeModel *changeModel = [IDPChangeModel removeArrayChangeWithIndex:index];
     
-    [self notifyOfState:IDPModelDidChange withObject:changeModel];
+    [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
 }
 
 - (void)removeObjects:(NSArray *)objects {
@@ -92,7 +92,20 @@
     
     IDPChangeModel *changeModel = [IDPChangeModel moveArrayChangeWithSourceIndex:sourceIndex destanationIndex:destinationIndex];
     
-    [self notifyOfState:IDPModelDidChange withObject:changeModel];
+    [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+}
+
+#pragma mark -
+#pragma mark ObservableObject Method Override
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case IDPArrayModelDidChange:
+            return @selector(model:didChangeWithObject:);
+            
+        default:
+            return [super selectorForState:state];
+    }
 }
 
 @end

@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "IDPObservableObject.h"
+#import "IDPModel.h"
+//#import "IDPObservableObject.h"
+#import "IDPArrayModelObserver.h"
 
-@interface IDPArrayModel : IDPObservableObject
+
+@interface IDPArrayModel : IDPModel<IDPArrayObserver>
 
 @property (nonatomic, readonly) NSArray     *objectsArray;
 @property (nonatomic, readonly) NSUInteger  count;

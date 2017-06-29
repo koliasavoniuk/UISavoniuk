@@ -10,6 +10,7 @@
 		766296DB1F04D9FA00FE3150 /* IDPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 766296D91F04D9FA00FE3150 /* IDPLoadingView.m */; };
 		766296DC1F04D9FA00FE3150 /* IDPLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766296DA1F04D9FA00FE3150 /* IDPLoadingView.xib */; };
 		766296DF1F04DA2B00FE3150 /* IDPLoadingViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 766296DE1F04DA2B00FE3150 /* IDPLoadingViewContainer.m */; };
+		766296E41F04FBB000FE3150 /* IDPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 766296E31F04FBB000FE3150 /* IDPModel.m */; };
 		766547871F03ED6400CD6273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 766547821F03ED6400CD6273 /* Assets.xcassets */; };
 		766547881F03ED6400CD6273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766547831F03ED6400CD6273 /* LaunchScreen.storyboard */; };
 		766547891F03ED6400CD6273 /* idapLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 766547861F03ED6400CD6273 /* idapLogo.png */; };
@@ -54,6 +55,9 @@
 		766296DD1F04DA2B00FE3150 /* IDPLoadingViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPLoadingViewContainer.h; sourceTree = "<group>"; };
 		766296DE1F04DA2B00FE3150 /* IDPLoadingViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPLoadingViewContainer.m; sourceTree = "<group>"; };
 		766296E01F04DBB600FE3150 /* IDPLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDPLoading.h; sourceTree = "<group>"; };
+		766296E21F04FBB000FE3150 /* IDPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPModel.h; sourceTree = "<group>"; };
+		766296E31F04FBB000FE3150 /* IDPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPModel.m; sourceTree = "<group>"; };
+		766296E51F0504A700FE3150 /* IDPArrayModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDPArrayModelObserver.h; sourceTree = "<group>"; };
 		766547821F03ED6400CD6273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		766547841F03ED6400CD6273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		766547861F03ED6400CD6273 /* idapLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idapLogo.png; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 		766296E11F04F8E500FE3150 /* IDPModel */ = {
 			isa = PBXGroup;
 			children = (
+				766296E21F04FBB000FE3150 /* IDPModel.h */,
+				766296E31F04FBB000FE3150 /* IDPModel.m */,
 			);
 			path = IDPModel;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 			children = (
 				766547B11F03ED6A00CD6273 /* IDPArrayModel.h */,
 				766547B21F03ED6A00CD6273 /* IDPArrayModel.m */,
+				766296E51F0504A700FE3150 /* IDPArrayModelObserver.h */,
 			);
 			path = IDPArrayModel;
 			sourceTree = "<group>";
@@ -603,6 +610,7 @@
 				766547EB1F03ED6A00CD6273 /* UINib+IDPExtensions.m in Sources */,
 				766547FA1F03ED6A00CD6273 /* IDPUser.m in Sources */,
 				766547EF1F03ED6A00CD6273 /* IDPConstants.m in Sources */,
+				766296E41F04FBB000FE3150 /* IDPModel.m in Sources */,
 				766296DF1F04DA2B00FE3150 /* IDPLoadingViewContainer.m in Sources */,
 				766548021F03ED6A00CD6273 /* IDPSceneView.m in Sources */,
 				766548061F03ED6A00CD6273 /* IDPUsersView.m in Sources */,

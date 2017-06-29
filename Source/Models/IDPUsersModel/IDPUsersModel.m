@@ -34,15 +34,18 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)serializeObjectsArray {
+- (void)save {
     [NSKeyedArchiver archiveRootObject:self.objectsArray toFile:self.url.path];
 }
 
-- (void)deserializeObjectsArray {
+- (void)loadMethods {
+    sleep(2);
     IDPDispatchAsyncInBackground(^{
         NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.url.path];
-        [self addObjects:array];
-        sleep(2);
+
+        [self performBlock:^{
+            [self addObjects:array];
+        } shouldNotify:NO];
         
         IDPDispatchSyncOnMainQueue(^{
             self.state = IDPModelDidLoad;
@@ -55,22 +58,6 @@
 
 - (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-#pragma mark -
-#pragma mark ObservableObject Method Override
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case IDPModelDidChange:
-            return @selector(model:didChangeWithObject:);
-         
-        case IDPModelDidLoad:
-            return @selector(modelDidLoad:);
-            
-        default:
-            return [super selectorForState:state];
-    }
 }
 
 @end

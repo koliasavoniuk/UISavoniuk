@@ -61,12 +61,13 @@
         
         _animatedLoading = animatedLoading;
         
-        if (animatedLoading) {
-            [self showLoading];
-            [self bringSubviewToFront:self.loadingView];
-        } else {
-            [self hideLoading];
-        }
+    }
+    
+    if (animatedLoading) {
+        [self showLoading];
+        [self bringSubviewToFront:self.loadingView];
+    } else {
+        [self hideLoading];
     }
 }
 

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class IDPLoadingView;
+#import "IDPLoadingViewContainer.h"
 
-@interface IDPUsersView : UIView
+@interface IDPUsersView : IDPLoadingViewContainer
 @property (nonatomic, strong)   IBOutlet    UITableView     *tableView;
-@property (nonatomic, strong)   IBOutlet    IDPLoadingView  *loadingView;
+
 
 @end

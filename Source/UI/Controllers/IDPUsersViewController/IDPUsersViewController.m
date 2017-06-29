@@ -46,11 +46,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark -
 #pragma mark View Lifecycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    //[self.usersView.loadingView showLoading];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
@@ -69,12 +64,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 #pragma mark -
 #pragma mark Private
-
-- (void)hideLoadingView {
-    IDPUsersView *usersView = self.usersView;
-    //[usersView.loadingView hideLoading];
-    [usersView.tableView reloadData];
-}
 
 - (void)editing {
     [self.usersView.tableView setEditing:!self.usersView.tableView.editing animated:YES];
@@ -113,14 +102,21 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 #pragma mark -
-#pragma mark IDPUsersModelObserver
+#pragma mark IDPArrayModelObserver
 
 - (void)model:(id)model didChangeWithObject:(IDPChangeModel *)object {
     [object applyToTableView:self.usersView.tableView];
 }
 
 - (void)modelDidLoad:(id)object {
-    [self hideLoadingView];
+    IDPUsersView *userView = self.usersView;
+    userView.animatedLoading = NO;
+    [userView.tableView reloadData];
+}
+
+- (void)modelWillLoad:(id)model {
+    IDPUsersView *userView = self.usersView;
+    userView.animatedLoading = YES;
 }
 
 @end

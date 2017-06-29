@@ -34,9 +34,9 @@
     
     IDPUsersViewController *controller = [IDPUsersViewController new];
     IDPUsersModel *usersModel = [IDPUsersModel new];
-    [usersModel deserializeObjectsArray];
-    
     controller.usersModel = usersModel;
+    [usersModel load];
+    
     window.rootViewController = controller;
     self.viewController = controller;
 
@@ -53,7 +53,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.viewController.usersModel serializeObjectsArray];
+    [self.viewController.usersModel save];
 }
 
 
@@ -66,7 +66,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.viewController.usersModel serializeObjectsArray];
+    [self.viewController.usersModel save];
 }
 
 

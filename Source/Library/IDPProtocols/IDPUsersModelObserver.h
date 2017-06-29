@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, IDPModelState) {
-    IDPModelDidLoad,
     IDPModelDidUnload,
-    IDPModelDidFailLoading,
     IDPModelWillLoad,
-    IDPModelDidChange
+    IDPModelDidLoad,
+    IDPModelDidFailLoading,
+    IDPModelStateCount
 };
 
 @protocol IDPUsersModelObserver <NSObject>
@@ -23,6 +23,5 @@ typedef NS_ENUM(NSUInteger, IDPModelState) {
 - (void)modelDidUnload:(id)object;
 - (void)modelDidFailLoading:(id)object;
 - (void)modelWillLoad:(id)object;
-- (void)modelDidChange:(id)object;
 
 @end

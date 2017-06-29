@@ -18,26 +18,31 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    //self.loadingView = [IDPLoadingView loadingViewInSuperview:self];
+    self.loadingView = [self defaultLoadingView];
     
     return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
-    //self.loadingView = [IDPLoadingView loadingViewInSuperview:self];
+    self.loadingView = [self defaultLoadingView];
     
     return self;
 }
 
-#pragma mark -
-#pragma mark UIView Methods Override
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    if (!self.loadingView) {
+        [self defaultLoadingView];
+    }
+}
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    IDPLoadingView *loadingView = self.loadingView;
-    loadingView.frame = self.bounds;
-    loadingView.indicatorView.center = CGPointMake(loadingView.frame.size.width / 2, loadingView.frame.size.height / 2);
+#pragma mark -
+#pragma mark Private Methods
+
+- (UIView<IDPLoading> *)defaultLoadingView {
+    return [IDPLoadingView loadingViewInSuperview:self];
 }
 
 @end

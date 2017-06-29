@@ -12,7 +12,8 @@
 #pragma mark Private declarations
 
 @interface IDPObservableObject ()
-@property (nonatomic, strong) NSHashTable *mutableObservers;
+@property (nonatomic, strong)   NSHashTable *mutableObservers;
+@property (nonatomic, assign)   BOOL        shouldNotify;
 
 @end
 
@@ -20,12 +21,15 @@
 
 @dynamic observers;
 
+@synthesize state = _state;
+
 #pragma mark -
 #pragma mark Deallocations and initializations
 
 - (instancetype)init {
     self = [super init];
     self.mutableObservers = [NSHashTable weakObjectsHashTable];
+    self.shouldNotify = YES;
     
     return self;
 }
@@ -45,8 +49,14 @@
             _state = state;
         }
         
-        [self notifyOfState:state];
+        if (self.shouldNotify) {
+            [self notifyOfState:state];
+        }
     }
+}
+
+- (NSUInteger)state {
+    return _state;
 }
 
 #pragma mark -
@@ -94,14 +104,23 @@
 }
 
 - (void)notifyOfState:(NSUInteger)state withObject:(id)object {
-    [self notifyOfStateWithSelector:[self selectorForState:state]
-                                                withObject:object];
+    if (self.shouldNotify) {
+        [self notifyOfStateWithSelector:[self selectorForState:state]
+                             withObject:object];
+    }
 }
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
     _state = state;
     
     [self notifyOfState:state withObject:object];
+}
+
+- (void)performBlock:(void(^)())block shouldNotify:(BOOL)shouldNotify {
+    BOOL blockNotify = self.shouldNotify;
+    self.shouldNotify = shouldNotify;
+    block();
+    self.shouldNotify = blockNotify;
 }
 
 #pragma mark -
