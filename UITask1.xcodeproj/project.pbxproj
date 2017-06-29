@@ -155,6 +155,13 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		766296E11F04F8E500FE3150 /* IDPModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IDPModel;
+			sourceTree = "<group>";
+		};
 		766547811F03ED6400CD6273 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +297,7 @@
 		766547AF1F03ED6A00CD6273 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				766296E11F04F8E500FE3150 /* IDPModel */,
 				766547B01F03ED6A00CD6273 /* IDPArrayModel */,
 				766547B31F03ED6A00CD6273 /* IDPChangeModel */,
 				766547C51F03ED6A00CD6273 /* IDPUser */,

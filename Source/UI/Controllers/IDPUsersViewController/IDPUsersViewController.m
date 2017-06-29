@@ -48,7 +48,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.usersView.loadingView showLoading];
+    //[self.usersView.loadingView showLoading];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +72,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 - (void)hideLoadingView {
     IDPUsersView *usersView = self.usersView;
-    [usersView.loadingView hideLoading];
+    //[usersView.loadingView hideLoading];
     [usersView.tableView reloadData];
 }
 
