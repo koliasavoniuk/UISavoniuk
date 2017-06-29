@@ -18,14 +18,14 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    self.loadingView = [IDPLoadingView loadingViewFromNibWithSuperview:self];
+    self.loadingView = [IDPLoadingView loadingViewInSuperview:self];
     
     return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
-    self.loadingView = [IDPLoadingView loadingViewFromNibWithSuperview:self];
+    self.loadingView = [IDPLoadingView loadingViewInSuperview:self];
     
     return self;
 }

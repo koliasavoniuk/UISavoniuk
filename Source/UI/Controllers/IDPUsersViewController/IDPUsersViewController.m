@@ -120,8 +120,6 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 - (void)modelDidLoad:(id)object {
-    //[self.usersView.tableView reloadData];
-    //NSLog(@"modelDidLoad");
     [self hideLoadingView];
 }
 
