@@ -10,10 +10,18 @@
 
 @implementation UIViewController (IDPExtensions)
 
-- (instancetype)createViewControllerWithDefaultNib:(Class)class {
-    NSString *defaultNib = NSStringFromClass(class);
++ (instancetype)viewController {
+    NSString *viewControllerClass = NSStringFromClass([self class]);
+    NSString *nibName = [self nibName];
+    if (nibName == nil) {
+        nibName = viewControllerClass;
+    }
     
-    return [[class alloc] initWithNibName:defaultNib bundle:nil];
+    return [[self alloc] initWithNibName:nibName bundle:nil];
+}
+
++ (NSString *)nibName {
+    return nil;
 }
 
 @end

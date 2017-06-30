@@ -36,11 +36,15 @@
 #pragma mark Accessors
 
 - (NSArray *)objectsArray {
-    return [self.mutableObjectsArray copy];
+    @synchronized (self) {
+        return [self.mutableObjectsArray copy];
+    }
 }
 
 - (NSUInteger)count {
-    return [self.mutableObjectsArray count];
+    @synchronized (self) {
+        return [self.mutableObjectsArray count];
+    }
 }
 
 #pragma mark -

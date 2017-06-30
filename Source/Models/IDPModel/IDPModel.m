@@ -15,13 +15,10 @@
 
 - (void)load {
     @synchronized (self) {
-        if (IDPModelWillLoad == self.state) {
-            [self notifyOfState:IDPModelWillLoad];
-            return;
-        }
+        NSUInteger state = self.state;
         
-        if (IDPModelDidLoad == self.state) {
-            [self notifyOfState:IDPModelDidLoad];
+        if (IDPModelWillLoad == state || IDPModelDidLoad == state) {
+            [self notifyOfState:state];
             return;
         }
         

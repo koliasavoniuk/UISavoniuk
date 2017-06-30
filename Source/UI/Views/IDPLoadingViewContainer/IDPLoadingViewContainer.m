@@ -16,9 +16,6 @@
 
 - (UIView<IDPLoading> *)defaultLoadingView;
 
-- (void)showLoading;
-- (void)hideLoading;
-
 - (void)setLoading:(BOOL)loading withAlpha:(NSUInteger)alpha;
 
 @end
@@ -65,9 +62,9 @@
     
     if (animatedLoading) {
         [self bringSubviewToFront:self.loadingView];
-        [self showLoading];
+        [self setLoading:YES withAlpha:kIDPShowAlpha];
     } else {
-        [self hideLoading];
+        [self setLoading:NO withAlpha:kIDPHideAlpha];
     }
 }
 
@@ -86,14 +83,6 @@
 
 - (UIView<IDPLoading> *)defaultLoadingView {
     return [IDPLoadingView loadingViewInSuperview:self];
-}
-
-- (void)showLoading {
-    [self setLoading:YES withAlpha:kIDPShowAlpha];
-}
-
-- (void)hideLoading {
-    [self setLoading:NO withAlpha:kIDPHideAlpha];
 }
 
 - (void)setLoading:(BOOL)loading withAlpha:(NSUInteger)alpha {

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (IDPExtensions)
-- (instancetype)createViewControllerWithDefaultNib:(Class)cls;
++ (instancetype)viewController;
+
+// You should override this method if you want to init viewController from nib with necessary name
++ (NSString *)nibName;
 
 @end
