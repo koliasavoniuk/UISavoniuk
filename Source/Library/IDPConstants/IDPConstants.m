@@ -17,5 +17,5 @@ NSString * const kIDPKeyName = @"name";
 NSString * const kIDPKeySurname = @"surname";
 NSString * const kIDPKeyImageURL = @"imageURL";
 const NSUInteger kIDPHideAlpha = 0;
-const NSUInteger kIDPShowAlpha = 0.5;
+const NSUInteger kIDPShowAlpha = 1;
 const NSUInteger kIDPAnimationDuration = 0;

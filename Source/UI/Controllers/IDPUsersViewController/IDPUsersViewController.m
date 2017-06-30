@@ -110,7 +110,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 
 - (void)modelDidLoad:(id)object {
     IDPUsersView *userView = self.usersView;
-    userView.animatedLoading = YES;
+    userView.animatedLoading = NO;
     sleep(2);
     [userView.tableView reloadData];
 }

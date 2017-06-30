@@ -64,8 +64,8 @@
     }
     
     if (animatedLoading) {
-        [self showLoading];
         [self bringSubviewToFront:self.loadingView];
+        [self showLoading];
     } else {
         [self hideLoading];
     }

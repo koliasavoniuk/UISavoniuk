@@ -56,7 +56,9 @@
 }
 
 - (NSUInteger)state {
-    return _state;
+    @synchronized (self) {
+        return _state;
+    }
 }
 
 #pragma mark -
@@ -111,9 +113,11 @@
 }
 
 - (void)setState:(NSUInteger)state withObject:(id)object {
-    _state = state;
-    
-    [self notifyOfState:state withObject:object];
+    @synchronized (self) {
+        _state = state;
+        
+        [self notifyOfState:state withObject:object];
+    }
 }
 
 - (void)performBlock:(void(^)())block shouldNotify:(BOOL)shouldNotify {

@@ -51,10 +51,12 @@
         return;
     }
     
-    [self.mutableObjectsArray addObject:object];
-    NSMutableArray *array = self.mutableObjectsArray;
-    IDPChangeModel *changeModel = [IDPChangeModel addArrayChangeWithIndex:[array indexOfObject:object]];
-    [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+    @synchronized (self) {
+        [self.mutableObjectsArray addObject:object];
+        NSMutableArray *array = self.mutableObjectsArray;
+        IDPChangeModel *changeModel = [IDPChangeModel addArrayChangeWithIndex:[array indexOfObject:object]];
+        [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+    }
 }
 
 - (void)addObjects:(NSArray *)objects {
@@ -64,14 +66,16 @@
 }
 
 - (void)removeObject:(id)object {
-    NSMutableArray *array = self.mutableObjectsArray;
-    NSUInteger index = [array indexOfObject:object];
-    
-    [self.mutableObjectsArray removeObject:object];
-    
-    IDPChangeModel *changeModel = [IDPChangeModel removeArrayChangeWithIndex:index];
-    
-    [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+    @synchronized (self) {
+        NSMutableArray *array = self.mutableObjectsArray;
+        NSUInteger index = [array indexOfObject:object];
+        
+        [self.mutableObjectsArray removeObject:object];
+        
+        IDPChangeModel *changeModel = [IDPChangeModel removeArrayChangeWithIndex:index];
+        
+        [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+    }
 }
 
 - (void)removeObjects:(NSArray *)objects {
@@ -85,14 +89,16 @@
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)sourceIndex withIndex:(NSUInteger)destinationIndex {
-    NSMutableArray *array = self.mutableObjectsArray;
-    id object = [array objectAtIndex:sourceIndex];
-    [array removeObject:array[sourceIndex]];
-    [array insertObject:object atIndex:destinationIndex];
-    
-    IDPChangeModel *changeModel = [IDPChangeModel moveArrayChangeWithSourceIndex:sourceIndex destanationIndex:destinationIndex];
-    
-    [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+    @synchronized (self) {
+        NSMutableArray *array = self.mutableObjectsArray;
+        id object = [array objectAtIndex:sourceIndex];
+        [array removeObject:array[sourceIndex]];
+        [array insertObject:object atIndex:destinationIndex];
+        
+        IDPChangeModel *changeModel = [IDPChangeModel moveArrayChangeWithSourceIndex:sourceIndex destanationIndex:destinationIndex];
+        
+        [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+    }
 }
 
 #pragma mark -
