@@ -12,7 +12,6 @@
 
 @interface IDPModel : IDPObservableObject<IDPUsersModelObserver>
 
-- (void)save;
 - (void)load;
 
 //This method is creating for subclasses don't call it directly

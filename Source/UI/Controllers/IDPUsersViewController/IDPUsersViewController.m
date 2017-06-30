@@ -40,6 +40,8 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
         [_usersModel removeObserver:self];
         _usersModel = usersModel;
         [_usersModel addObserver:self];
+        
+        [_usersModel load];
     }
 }
 
@@ -49,6 +51,10 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
+}
+
+- (void)viewDidLoad {
+    [self.usersModel load];
 }
 
 #pragma mark -

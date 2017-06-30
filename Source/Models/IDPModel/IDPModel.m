@@ -13,10 +13,6 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)save {
-
-}
-
 - (void)load {
     @synchronized (self) {
         if (IDPModelWillLoad == self.state) {

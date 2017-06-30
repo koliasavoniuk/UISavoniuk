@@ -35,7 +35,6 @@
     IDPUsersViewController *controller = [IDPUsersViewController new];
     IDPUsersModel *usersModel = [IDPUsersModel new];
     controller.usersModel = usersModel;
-    [usersModel load];
     
     window.rootViewController = controller;
     self.viewController = controller;

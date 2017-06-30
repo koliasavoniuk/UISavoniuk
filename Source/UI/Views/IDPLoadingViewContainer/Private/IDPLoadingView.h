@@ -11,7 +11,7 @@
 #import "IDPLoading.h"
 
 @interface IDPLoadingView : UIView<IDPLoading>
-@property (nonatomic, strong)   IBOutlet    UIActivityIndicatorView *indicatorView;
+@property (nonatomic, strong)   IBOutlet    UIActivityIndicatorView *activityIndicatorView;
 
 + (instancetype)loadingViewInSuperview:(UIView *)superview;
 

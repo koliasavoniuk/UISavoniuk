@@ -13,7 +13,6 @@
 
 @interface IDPUsersModel : IDPArrayModel
 
-//- (void)serializeObjectsArray;
-//- (void)deserializeObjectsArray;
+- (void)save;
 
 @end
