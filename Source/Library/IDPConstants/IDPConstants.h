@@ -19,3 +19,4 @@ extern NSString * const kIDPKeyImageURL;
 extern const NSUInteger kIDPHideAlpha;
 extern const NSUInteger kIDPShowAlpha;
 extern const NSUInteger kIDPAnimationDuration;
+extern const NSUInteger kIDPMaxConcurrentOperationCount;
