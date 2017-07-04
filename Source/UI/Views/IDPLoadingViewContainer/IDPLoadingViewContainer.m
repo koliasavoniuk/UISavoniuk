@@ -62,10 +62,14 @@
     
     if (animatedLoading) {
         [self bringSubviewToFront:self.loadingView];
+        
         [self setLoading:YES withAlpha:kIDPShowAlpha];
     } else {
         [self setLoading:NO withAlpha:kIDPHideAlpha];
     }
+    
+    //[self setLoading:animatedLoading withAlpha:kIDPShowAlpha];
+
 }
 
 - (void)setLoadingView:(UIView<IDPLoading> *)loadingView {

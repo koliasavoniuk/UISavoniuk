@@ -27,7 +27,7 @@
     return [[IDPChangeRemove alloc] initWithIndex:index];
 }
 
-+ (instancetype)moveArrayChangeWithSourceIndex:(NSUInteger)sourceIndex destanationIndex:(NSUInteger)destinationIndex {
++ (instancetype)moveArrayChangeWithSourceIndex:(NSUInteger)sourceIndex destinationIndex:(NSUInteger)destinationIndex {
     return [[IDPChangeMove alloc] initMoveArrayChangeWithSourceIndex:sourceIndex destinationIndex:destinationIndex];
 }
 

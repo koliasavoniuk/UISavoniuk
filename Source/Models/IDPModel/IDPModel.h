@@ -10,11 +10,11 @@
 
 #import "IDPModelObserver.h"
 
-@interface IDPModel : IDPObservableObject<IDPModelObserver>
+@interface IDPModel : IDPObservableObject
 
 - (void)load;
 
 //This method is creating for subclasses don't call it directly
-- (void)loadMethods;
+- (void)performLoading;
 
 @end

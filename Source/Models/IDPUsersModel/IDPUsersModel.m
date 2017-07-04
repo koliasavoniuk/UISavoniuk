@@ -37,11 +37,11 @@
     [NSKeyedArchiver archiveRootObject:self.objectsArray toFile:self.url.path];
 }
 
-- (void)loadMethods {
+- (void)performLoading {
     IDPDispatchAsyncInBackground(^{
         NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.url.path];
         
-        [self performBlockWithNotifications:^{
+        [self performBlockWithoutNotifications:^{
            [self addObjects:array];
         }];
         

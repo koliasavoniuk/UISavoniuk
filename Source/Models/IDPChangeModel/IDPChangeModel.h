@@ -15,6 +15,8 @@
 
 + (instancetype)addArrayChangeWithIndex:(NSUInteger)index;
 + (instancetype)removeArrayChangeWithIndex:(NSUInteger)index;
-+ (instancetype)moveArrayChangeWithSourceIndex:(NSUInteger)sourceIndex destanationIndex:(NSUInteger)destinationIndex;
++ (instancetype)moveArrayChangeWithSourceIndex:(NSUInteger)sourceIndex destinationIndex:(NSUInteger)destinationIndex;
+
+- (instancetype)initWithIndex:(NSUInteger)index;
 
 @end

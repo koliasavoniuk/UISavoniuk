@@ -20,8 +20,8 @@ typedef NS_ENUM(NSUInteger, IDPSquarePosition) {
 @property (nonatomic, assign)   IDPSquarePosition   squarePosition;
 @property (nonatomic, assign)   BOOL                moving;
 
-- (void)setSquarePosition:(IDPSquarePosition)position;
 - (void)setSquarePosition:(IDPSquarePosition)position animated:(BOOL)animated;
+- (void)setSquarePosition:(IDPSquarePosition)position animated:(BOOL)animated completionHandler:(void (^)(BOOL finished))completion;
 
 - (void)moveToNextPosition;
 

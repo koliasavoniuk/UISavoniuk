@@ -42,20 +42,14 @@ static const CGFloat kIDPAnimationDuration = 1.0f;
                  animated:(BOOL)animated
         completionHandler:(void (^)(BOOL finished))completion
 {
-    NSTimeInterval interval = 0;
+    self.animating = true;
     
-    if (animated) {
-        interval = kIDPAnimationDuration;
-    }
-    
-    CGPoint point = [self centerPointWithPosition:position];
-    
-    [UIView animateWithDuration:interval
+    [UIView animateWithDuration:animated ? kIDPAnimationDuration : 0
                      animations:^{
-                         self.animating = true;
-                         self.center = point;
+                         self.center = [self centerPointWithPosition:position];
 
-                     } completion:^(BOOL finished){
+                     }
+                     completion:^(BOOL finished){
                          self.animating = false;
                          _squarePosition = position;
                          

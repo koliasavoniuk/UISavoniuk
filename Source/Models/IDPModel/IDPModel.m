@@ -24,11 +24,11 @@
         
         self.state = IDPModelWillLoad;
         
-        [self loadMethods];
+        [self performLoading];
     }
 }
 
-- (void)loadMethods {
+- (void)performLoading {
 
 }
 

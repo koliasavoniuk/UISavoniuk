@@ -10,6 +10,7 @@
 
 #import "IDPChangeModel.h"
 #import "IDPModelObserver.h"
+#import "NSMutableArray+IDPExtensions.h"
 
 @interface IDPArrayModel()
 @property (nonatomic, strong)   NSMutableArray  *mutableObjectsArray;
@@ -43,7 +44,7 @@
 
 - (NSUInteger)count {
     @synchronized (self) {
-        return [self.mutableObjectsArray count];
+        return self.mutableObjectsArray.count;
     }
 }
 
@@ -59,7 +60,7 @@
         [self.mutableObjectsArray addObject:object];
         NSMutableArray *array = self.mutableObjectsArray;
         IDPChangeModel *changeModel = [IDPChangeModel addArrayChangeWithIndex:[array indexOfObject:object]];
-        [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+        [self notifyOfArrayChangeWithObject:changeModel];
     }
 }
 
@@ -78,7 +79,7 @@
         
         IDPChangeModel *changeModel = [IDPChangeModel removeArrayChangeWithIndex:index];
         
-        [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+        [self notifyOfArrayChangeWithObject:changeModel];
     }
 }
 
@@ -92,17 +93,27 @@
     return self.mutableObjectsArray[index];
 }
 
+- (NSUInteger)indexOfObject:(id)object {
+    return [self.mutableObjectsArray indexOfObject:object];
+}
+
 - (void)moveObjectAtIndex:(NSUInteger)sourceIndex withIndex:(NSUInteger)destinationIndex {
     @synchronized (self) {
         NSMutableArray *array = self.mutableObjectsArray;
-        id object = [array objectAtIndex:sourceIndex];
-        [array removeObject:array[sourceIndex]];
-        [array insertObject:object atIndex:destinationIndex];
+
+        [self.mutableObjectsArray removeObjectByIndex:sourceIndex insertNewByIndex:destinationIndex inArray:array];
         
-        IDPChangeModel *changeModel = [IDPChangeModel moveArrayChangeWithSourceIndex:sourceIndex destanationIndex:destinationIndex];
+        IDPChangeModel *changeModel = [IDPChangeModel moveArrayChangeWithSourceIndex:sourceIndex destinationIndex:destinationIndex];
         
-        [self notifyOfState:IDPArrayModelDidChange withObject:changeModel];
+        [self notifyOfArrayChangeWithObject:changeModel];
     }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)notifyOfArrayChangeWithObject:(id)object {
+    [self notifyOfState:IDPArrayModelDidChange withObject:object];
 }
 
 #pragma mark -

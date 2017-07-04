@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "IDPModel.h"
-//#import "IDPObservableObject.h"
 #import "IDPArrayModelObserver.h"
 
-
-@interface IDPArrayModel : IDPModel<IDPArrayObserver>
+@interface IDPArrayModel : IDPModel
 
 @property (nonatomic, readonly) NSArray     *objectsArray;
 @property (nonatomic, readonly) NSUInteger  count;
@@ -27,5 +25,7 @@
 - (void)moveObjectAtIndex:(NSUInteger)sourceIndex withIndex:(NSUInteger)destinationIndex;
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
+
+- (NSUInteger)indexOfObject:(id)object;
 
 @end

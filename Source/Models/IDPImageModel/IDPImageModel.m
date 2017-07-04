@@ -64,7 +64,7 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)loadMethods {
+- (void)performLoading {
     self.operation = [self imageLoadingOperation];
 }
 
