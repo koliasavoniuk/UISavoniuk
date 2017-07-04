@@ -6,10 +6,9 @@
 //  Copyright © 2017 Student002. All rights reserved.
 //
 
-#import "IDPChangeModel.h"
+#import "IDPDoubleIndexChange.h"
 
-@interface IDPChangeMove : IDPChangeModel
-@property (nonatomic, readonly) NSUInteger  destinationIndex;
+@interface IDPChangeMove : IDPDoubleIndexChange
 
 - (instancetype)initMoveArrayChangeWithSourceIndex:(NSUInteger)sourceIndex destinationIndex:(NSUInteger)destinationIndex;
 

@@ -10,11 +10,7 @@
 
 #import "IDPChangeModel+UITableView.h"
 #import "IDPChangeModelProtected.h"
-
-@interface IDPChangeMove ()
-@property (nonatomic, assign) NSUInteger  destinationIndex;
-
-@end
+#import "IDPDoubleIndexChangeProtected.h"
 
 @implementation IDPChangeMove
 

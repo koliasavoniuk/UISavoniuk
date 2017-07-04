@@ -8,6 +8,7 @@
 
 #import "IDPImageModel.h"
 
+#import "IDPImageModelDispatcher.h"
 #import "IDPMacro.h"
 
 @interface IDPImageModel ()
@@ -42,6 +43,23 @@
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setOperation:(NSOperation *)operation {
+    if (_operation != operation) {
+        [_operation cancel];
+        
+        _operation = operation;
+        
+        if (operation) {
+            IDPImageModelDispatcher *dispatcher = [IDPImageModelDispatcher sharedDispatcher];
+            [dispatcher.queue addOperation:operation];
+        }
+    }
+}
+
 
 #pragma mark -
 #pragma mark Public Methods

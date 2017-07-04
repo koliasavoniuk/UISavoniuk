@@ -6,8 +6,6 @@
 //  Copyright © 2017 Student002. All rights reserved.
 //
 
-//#import "IDPChangeModel.h"
-
 @interface IDPChangeModel ()
 @property (nonatomic, assign) NSUInteger  index;
 
