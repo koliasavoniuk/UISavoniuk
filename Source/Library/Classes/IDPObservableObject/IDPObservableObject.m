@@ -106,9 +106,11 @@
 }
 
 - (void)notifyOfState:(NSUInteger)state withObject:(id)object {
-    if (self.shouldNotify) {
-        [self notifyOfStateWithSelector:[self selectorForState:state]
-                             withObject:object];
+    @synchronized (self) {
+        if (self.shouldNotify) {
+            [self notifyOfStateWithSelector:[self selectorForState:state]
+                                 withObject:object];
+        }
     }
 }
 
@@ -120,9 +122,16 @@
     }
 }
 
-- (void)performBlock:(void(^)())block shouldNotify:(BOOL)shouldNotify {
+- (void)performBlockWithNotifications:(void(^)())block {
     BOOL blockNotify = self.shouldNotify;
-    self.shouldNotify = shouldNotify;
+    self.shouldNotify = YES;
+    block();
+    self.shouldNotify = blockNotify;
+}
+
+- (void)performBlockWithoutNotifications:(void(^)())block {
+    BOOL blockNotify = self.shouldNotify;
+    self.shouldNotify = NO;
     block();
     self.shouldNotify = blockNotify;
 }
