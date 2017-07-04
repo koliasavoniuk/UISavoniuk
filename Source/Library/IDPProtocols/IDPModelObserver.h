@@ -1,5 +1,5 @@
 //
-//  IDPUsersModelObserver.h
+//  IDPModelObserver.h
 //  UITask1
 //
 //  Created by Student002 on 6/20/17.
@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, IDPModelState) {
     IDPModelStateCount
 };
 
-@protocol IDPUsersModelObserver <NSObject>
+@protocol IDPModelObserver <NSObject>
 
 @optional
 - (void)modelDidLoad:(id)object;

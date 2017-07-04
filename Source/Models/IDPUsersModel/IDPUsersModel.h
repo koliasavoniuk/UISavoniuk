@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "IDPArrayModel.h"
-#import "IDPUsersModelObserver.h"
+#import "IDPModelObserver.h"
 
 @interface IDPUsersModel : IDPArrayModel
 

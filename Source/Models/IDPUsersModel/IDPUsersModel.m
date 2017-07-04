@@ -11,11 +11,10 @@
 #import "IDPUser.h"
 #import "IDPConstants.h"
 #import "IDPGCDWrapper.h"
+#import "NSFileManager+IDPExtensions.h"
 
 @interface IDPUsersModel()
 @property (nonatomic, strong)   NSURL   *url;
-
-- (NSURL *)applicationDocumentsDirectory;
 
 @end
 
@@ -26,7 +25,7 @@
 
 - (instancetype)init {
     self = [super init];
-    self.url = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:kIDPFileName];
+    self.url = [[NSFileManager applicationDocumentsDirectoryURL] URLByAppendingPathComponent:kIDPFileName];
     
     return self;
 }
@@ -50,13 +49,6 @@
             self.state = IDPModelDidLoad;
         });
     });
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (NSURL *)applicationDocumentsDirectory {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

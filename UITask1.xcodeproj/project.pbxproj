@@ -76,7 +76,7 @@
 		766547A61F03ED6A00CD6273 /* IDPGCDWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPGCDWrapper.m; sourceTree = "<group>"; };
 		766547A81F03ED6A00CD6273 /* IDPMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPMacro.h; sourceTree = "<group>"; };
 		766547A91F03ED6A00CD6273 /* IDPMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPMacro.m; sourceTree = "<group>"; };
-		766547AB1F03ED6A00CD6273 /* IDPUsersModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPUsersModelObserver.h; sourceTree = "<group>"; };
+		766547AB1F03ED6A00CD6273 /* IDPModelObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPModelObserver.h; sourceTree = "<group>"; };
 		766547AD1F03ED6A00CD6273 /* IDPRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPRandom.h; sourceTree = "<group>"; };
 		766547AE1F03ED6A00CD6273 /* IDPRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPRandom.m; sourceTree = "<group>"; };
 		766547B11F03ED6A00CD6273 /* IDPArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPArrayModel.h; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 		766547AA1F03ED6A00CD6273 /* IDPProtocols */ = {
 			isa = PBXGroup;
 			children = (
-				766547AB1F03ED6A00CD6273 /* IDPUsersModelObserver.h */,
+				766547AB1F03ED6A00CD6273 /* IDPModelObserver.h */,
 			);
 			path = IDPProtocols;
 			sourceTree = "<group>";

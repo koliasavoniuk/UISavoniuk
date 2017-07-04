@@ -9,7 +9,7 @@
 #import "IDPArrayModel.h"
 
 #import "IDPChangeModel.h"
-#import "IDPUsersModelObserver.h"
+#import "IDPModelObserver.h"
 
 @interface IDPArrayModel()
 @property (nonatomic, strong)   NSMutableArray  *mutableObjectsArray;

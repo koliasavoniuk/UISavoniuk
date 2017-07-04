@@ -10,7 +10,7 @@
 
 @implementation UIWindow (IDPExtensions)
 
-+ (instancetype)initWindowWithSize {
++ (instancetype)window {
     return [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 }
 

@@ -11,13 +11,7 @@
 @implementation UIViewController (IDPExtensions)
 
 + (instancetype)viewController {
-    NSString *viewControllerClass = NSStringFromClass([self class]);
-    NSString *nibName = [self nibName];
-    if (nibName == nil) {
-        nibName = viewControllerClass;
-    }
-    
-    return [[self alloc] initWithNibName:nibName bundle:nil];
+    return [[self alloc] initWithNibName:[self nibName] bundle:nil];
 }
 
 + (NSString *)nibName {

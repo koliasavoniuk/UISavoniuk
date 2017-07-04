@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "IDPUsersModelObserver.h"
+#import "IDPModelObserver.h"
 
 typedef NS_ENUM (NSUInteger, IDPArrayModelState) {
     IDPArrayModelDidChange = IDPModelStateCount
 };
 
-@protocol IDPArrayObserver <IDPUsersModelObserver>
+@protocol IDPArrayObserver <IDPModelObserver>
 
 @optional
 - (void)model:(id)model didChangeWithObject:(id)object;

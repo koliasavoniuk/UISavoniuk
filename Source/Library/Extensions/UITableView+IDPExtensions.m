@@ -12,14 +12,14 @@
 
 @implementation UITableView (IDPExtensions)
 
-- (id)reusableCellWithClass:(Class)class {
+- (id)dequeueReusableCellWithClass:(Class)class {
     NSString *cellClass = NSStringFromClass(class);
     
     return [self dequeueReusableCellWithIdentifier:cellClass];
 }
 
 - (id)reusableCellWithClassOrCreateNew:(Class)class {
-    UITableView *cell = [self reusableCellWithClass:class];
+    UITableView *cell = [self dequeueReusableCellWithClass:class];
     
     if (!cell) {
         UINib *nib = [UINib nibWithClass:class];

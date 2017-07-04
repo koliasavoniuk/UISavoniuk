@@ -22,7 +22,7 @@
 @implementation IDPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIWindow *window = [UIWindow initWindowWithSize];
+    UIWindow *window = [UIWindow window];
     self.window = window;
     
     //TASK 1

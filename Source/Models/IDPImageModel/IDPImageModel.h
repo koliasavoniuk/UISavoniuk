@@ -10,9 +10,9 @@
 #import "IDPModel.h"
 
 #import "IDPModel.h"
-#import "IDPUsersModelObserver.h"
+#import "IDPModelObserver.h"
 
-@interface IDPImageModel : IDPModel<IDPUsersModelObserver>
+@interface IDPImageModel : IDPModel<IDPModelObserver>
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) NSURL   *url;
 

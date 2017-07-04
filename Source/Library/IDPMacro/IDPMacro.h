@@ -45,13 +45,13 @@ _Pragma("clang diagnostic pop");
 #define IDPEmptyResult
 
 #define IDPStrongifyAndReturnIfNil(variable) \
-IDPStrongifyAndReturnResultIfNil(variable, IDPEmptyResult)
+    IDPStrongifyAndReturnResultIfNil(variable, IDPEmptyResult)
 
 #define IDPStrongifyAndReturnNilIfNil(variable) \
-IDPStrongifyAndReturnResultIfNil(variable, nil)
+    IDPStrongifyAndReturnResultIfNil(variable, nil)
 
 #define IDPStrongifyAndReturnResultIfNil(variable, result) \
-IDPStrongify(variable); \
-if (!variable) { \
-return result; \
-}
+    IDPStrongify(variable); \
+    if (!variable) { \
+        return result; \
+    }

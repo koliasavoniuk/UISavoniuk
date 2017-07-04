@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "IDPUsersModelObserver.h"
+#import "IDPModelObserver.h"
 #import "IDPUsersModel.h"
 
 @class IDPUser;
 
-@interface IDPUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IDPUsersModelObserver>
+@interface IDPUsersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IDPModelObserver>
 @property (nonatomic, strong)   IDPUser         *user;
 @property (nonatomic, strong)   IDPUsersModel   *usersModel;
 

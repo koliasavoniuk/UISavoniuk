@@ -10,7 +10,8 @@
 
 @interface NSFileManager (IDPExtensions)
 
-+ (NSURL *)applicationDocumentsDirectory;
-+ (NSURL *)applicationLibraryDirectory;
++ (NSURL *)applicationDocumentsDirectoryURL;
++ (NSURL *)applicationLibraryDirectoryURL;
++ (NSURL *)applicationDirectoryURL;
 
 @end

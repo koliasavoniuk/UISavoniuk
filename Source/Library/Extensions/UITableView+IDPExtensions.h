@@ -10,7 +10,7 @@
 
 @interface UITableView (IDPExtensions)
 
-- (id)reusableCellWithClass:(Class)cls;
+- (id)dequeueReusableCellWithClass:(Class)cls;
 - (id)reusableCellWithClassOrCreateNew:(Class)cls;
 - (void)updateWithBlock:(void(^)())block;
 

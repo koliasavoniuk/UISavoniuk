@@ -10,6 +10,6 @@
 
 @interface UIWindow (IDPExtensions)
 
-+ (instancetype)initWindowWithSize;
++ (instancetype)window;
 
 @end

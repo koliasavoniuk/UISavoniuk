@@ -8,9 +8,9 @@
 
 #import "IDPObservableObject.h"
 
-#import "IDPUsersModelObserver.h"
+#import "IDPModelObserver.h"
 
-@interface IDPModel : IDPObservableObject<IDPUsersModelObserver>
+@interface IDPModel : IDPObservableObject<IDPModelObserver>
 
 - (void)load;
 

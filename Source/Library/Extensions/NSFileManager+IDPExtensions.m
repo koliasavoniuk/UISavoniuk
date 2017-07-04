@@ -13,17 +13,17 @@
 #pragma mark -
 #pragma mark Classes
 
-+ (NSURL *)applicationDocumentsDirectory {
++ (NSURL *)applicationDocumentsDirectoryURL {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-+ (NSURL *)applicationLibraryDirectory {
++ (NSURL *)applicationLibraryDirectoryURL {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 + (NSURL *)applicationLibraryDirectoryWithName:(NSString *)name {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *documentsPath = [self applicationDocumentsDirectory].path;
+    NSString *documentsPath = [self applicationDocumentsDirectoryURL].path;
     NSString *namePath = [documentsPath stringByAppendingPathComponent:name];
     if (![fileManager fileExistsAtPath:namePath]) {
         if ([fileManager createDirectoryAtPath:namePath withIntermediateDirectories:NO attributes:nil error:nil]) {
