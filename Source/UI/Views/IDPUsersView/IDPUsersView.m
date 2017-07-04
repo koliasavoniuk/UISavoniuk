@@ -14,27 +14,15 @@
 @implementation IDPUsersView
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark Accessors
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    self.loadingView = [self defaultLoadingView];
+- (void)setEditing:(BOOL)editing {
+    if (_editing == editing) {
+        return;
+    }
     
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    self.loadingView = [self defaultLoadingView];
-    
-    return self;
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    if (!self.loadingView) {
-        [self defaultLoadingView];
+    if (editing) {
+        [self.tableView setEditing:!self.tableView.editing animated:YES];
     }
 }
 

@@ -24,12 +24,9 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 @implementation IDPUsersViewController
 
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
-    if (self) {
-        self.usersModel = [IDPUsersModel new];
-    }
+
     return self;
 }
 #pragma mark -
@@ -54,6 +51,8 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     [self.usersModel load];
 }
 
@@ -61,21 +60,10 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 #pragma mark Buttons
 
 - (IBAction)onEdit:(id)sender {
-    [self editing];
+    self.usersView.editing = !self.usersView.editing;
 }
 
 - (IBAction)onAdd:(id)sender {
-    [self adding];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)editing {
-    [self.usersView.tableView setEditing:!self.usersView.tableView.editing animated:YES];
-}
-
-- (void)adding {
     [self.usersModel addObject:[IDPUser new]];
 }
 
@@ -117,7 +105,7 @@ IDPViewControllerBaseViewProperty(IDPUsersViewController, usersView, IDPUsersVie
 - (void)modelDidLoad:(id)object {
     IDPUsersView *userView = self.usersView;
     userView.animatedLoading = NO;
-    sleep(2);
+    //sleep(2);
     [userView.tableView reloadData];
 }
 
