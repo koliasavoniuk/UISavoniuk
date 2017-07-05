@@ -13,27 +13,13 @@
 
 @implementation IDPFileSystemImageModel
 
-#pragma mark -
-#pragma mark Accessors
-
-- (NSString *)imagePath {
-    NSString *fileName = [[self.url lastPathComponent] stringByDeletingPathExtension];
-    
-    return [NSString stringWithFormat:@"%@/%@", [NSFileManager libraryFolderURL].path, fileName];
-}
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performLoading {
-    [self takeImageFromCache];
-}
-
-- (void)takeImageFromCache {
-    NSData *data = [NSData dataWithContentsOfFile:self.imagePath];
-    IDPDispatchAsyncOnMainQueue(^{
-        self.image = [UIImage imageWithData:data];
-    });
+- (void)loadWithCompletion:(void (^)(UIImage *, id))block {
+    UIImage *image = [UIImage imageWithContentsOfFile:self.url.path];
+    block(image, nil);
 }
 
 @end

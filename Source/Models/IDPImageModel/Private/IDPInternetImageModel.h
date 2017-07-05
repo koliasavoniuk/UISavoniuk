@@ -6,10 +6,8 @@
 //  Copyright © 2017 Student002. All rights reserved.
 //
 
-#import "IDPInternelDownloadModel.h"
+#import "IDPFileSystemImageModel.h"
 
-@interface IDPInternetImageModel : IDPInternelDownloadModel
-
-- (void)downloadImageFromInternet;
+@interface IDPInternetImageModel : IDPFileSystemImageModel
 
 @end

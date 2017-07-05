@@ -63,11 +63,11 @@
     return [[NSBundle mainBundle] pathForResource:kIDPImageName ofType:kIDPImageExtension];
     
 }
-
+/*
 - (IDPInternetImageModel *)imageModel {
     NSURL *url = [NSURL URLWithString:kIDPImageURL];
     
     return [IDPInternetImageModel imageWithURL:url];
 }
-
+*/
 @end

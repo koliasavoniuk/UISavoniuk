@@ -46,7 +46,7 @@
         case IDPModelDidUnload:
             return @selector(modelDidUnload:);
             
-        case IDPModelDidFailLoadingWithError:
+        case IDPModelDidFailLoading:
             return @selector(model: didFailLoadingWithError:);
             
         default:

@@ -12,7 +12,7 @@ typedef NS_ENUM(NSUInteger, IDPModelState) {
     IDPModelDidUnload,
     IDPModelWillLoad,
     IDPModelDidLoad,
-    IDPModelDidFailLoadingWithError,
+    IDPModelDidFailLoading,
     IDPModelStateCount
 };
 

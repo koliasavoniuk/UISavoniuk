@@ -9,40 +9,41 @@
 #import "IDPInternetImageModel.h"
 
 #import "IDPGCDWrapper.h"
+#import "NSURL+IDPExtensions.h"
+
+@interface IDPInternetImageModel ()
+@property (nonatomic, strong)       NSURLSessionDownloadTask    *sessionTask;
+
+@end
 
 @implementation IDPInternetImageModel
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Accessors
 
-- (void)performLoading {
-    IDPImageModel *model = [self.cache modelForKey:self.url];
-    if (model) {
-        [super performLoading];
-    } else {
-        [self downloadImageFromInternet];
-        [self.cache setObject:self forKey:self.url];
-    }
+- (void)dealloc {
+    self.sessionTask = nil;
 }
 
-- (void)downloadImageFromInternet {
-    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    [[urlSession downloadTaskWithURL:self.url
-                   completionHandler:^(NSURL *location,
-                                       NSURLResponse *response,
-                                       NSError *error)
-      {
-          if (error) {
-              NSLog(@"Failed downloading with error - %@", error);
-              [self setState:IDPModelDidFailLoadingWithError];
-          } else {
-              NSData *imageData = [NSData dataWithContentsOfURL:location];
-              self.image = [UIImage imageWithData:imageData];
-              
-              [imageData writeToFile:self.imagePath atomically:YES];
-          }
-      }] resume];
-}
+#pragma mark -
+#pragma mark Override Methods
 
+- (void)loadWithCompletion:(void (^)(UIImage *, id))block {
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    self.sessionTask = [urlSession downloadTaskWithURL:self.url
+                                     completionHandler:^(NSURL *location,
+                                                         NSURLResponse *response,
+                                                         NSError *error)
+                        {
+                            NSFileManager *manager = [NSFileManager defaultManager];
+                            NSURL *localURL = [NSURL localURLFromNetworkURL:self.url];
+                            [manager moveItemAtURL:location toURL:localURL error:nil];
+                            
+                            UIImage *image = [UIImage imageWithContentsOfFile:localURL.path];
+                            block(image, nil);
+                        }];
+    
+    [self.sessionTask resume];
+}
 
 @end

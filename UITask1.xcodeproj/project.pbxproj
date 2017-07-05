@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7652D6B41F0CC887001D3420 /* IDPInternelDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7652D6B31F0CC887001D3420 /* IDPInternelDownloadModel.m */; };
+		7652D6B91F0D154F001D3420 /* NSURL+IDPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7652D6B81F0D154F001D3420 /* NSURL+IDPExtensions.m */; };
 		766296DB1F04D9FA00FE3150 /* IDPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 766296D91F04D9FA00FE3150 /* IDPLoadingView.m */; };
 		766296DC1F04D9FA00FE3150 /* IDPLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766296DA1F04D9FA00FE3150 /* IDPLoadingView.xib */; };
 		766296DF1F04DA2B00FE3150 /* IDPLoadingViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 766296DE1F04DA2B00FE3150 /* IDPLoadingViewContainer.m */; };
@@ -57,9 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7652D6B21F0CC887001D3420 /* IDPInternelDownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPInternelDownloadModel.h; sourceTree = "<group>"; };
-		7652D6B31F0CC887001D3420 /* IDPInternelDownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPInternelDownloadModel.m; sourceTree = "<group>"; };
-		7652D6B51F0CC8F7001D3420 /* IDPInternetDownloadingObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPInternetDownloadingObserver.h; sourceTree = "<group>"; };
+		7652D6B71F0D154F001D3420 /* NSURL+IDPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+IDPExtensions.h"; sourceTree = "<group>"; };
+		7652D6B81F0D154F001D3420 /* NSURL+IDPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+IDPExtensions.m"; sourceTree = "<group>"; };
 		766296D81F04D9FA00FE3150 /* IDPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPLoadingView.h; sourceTree = "<group>"; };
 		766296D91F04D9FA00FE3150 /* IDPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPLoadingView.m; sourceTree = "<group>"; };
 		766296DA1F04D9FA00FE3150 /* IDPLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDPLoadingView.xib; sourceTree = "<group>"; };
@@ -533,9 +532,6 @@
 				7677B0951F0BC1C2009B7AE9 /* IDPFileSystemImageModel.m */,
 				7677B0971F0BC1E2009B7AE9 /* IDPInternetImageModel.h */,
 				7677B0981F0BC1E2009B7AE9 /* IDPInternetImageModel.m */,
-				7652D6B21F0CC887001D3420 /* IDPInternelDownloadModel.h */,
-				7652D6B31F0CC887001D3420 /* IDPInternelDownloadModel.m */,
-				7652D6B51F0CC8F7001D3420 /* IDPInternetDownloadingObserver.h */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -572,6 +568,8 @@
 				768A80A21F06793E00A2ACF0 /* NSBundle+IDPExtensions.m */,
 				7677B0911F0B8460009B7AE9 /* NSMutableArray+IDPExtensions.h */,
 				7677B0921F0B8460009B7AE9 /* NSMutableArray+IDPExtensions.m */,
+				7652D6B71F0D154F001D3420 /* NSURL+IDPExtensions.h */,
+				7652D6B81F0D154F001D3420 /* NSURL+IDPExtensions.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -663,7 +661,6 @@
 				766547F91F03ED6A00CD6273 /* IDPChangeRemove.m in Sources */,
 				766547F41F03ED6A00CD6273 /* IDPChangeAdd.m in Sources */,
 				766547F01F03ED6A00CD6273 /* IDPGCDWrapper.m in Sources */,
-				7652D6B41F0CC887001D3420 /* IDPInternelDownloadModel.m in Sources */,
 				768A809B1F06382400A2ACF0 /* UITableView+IDPExtensions.m in Sources */,
 				768A80A01F06787F00A2ACF0 /* NSFileManager+IDPExtensions.m in Sources */,
 				768A809D1F06382400A2ACF0 /* UIWindow+IDPExtensions.m in Sources */,
@@ -688,6 +685,7 @@
 				768A80981F06382400A2ACF0 /* NSArray+IDPExtensions.m in Sources */,
 				766547FE1F03ED6A00CD6273 /* IDPUsersViewController.m in Sources */,
 				766547F11F03ED6A00CD6273 /* IDPMacro.m in Sources */,
+				7652D6B91F0D154F001D3420 /* NSURL+IDPExtensions.m in Sources */,
 				7677B08F1F0B6F17009B7AE9 /* IDPDoubleIndexChange.m in Sources */,
 				7677B0991F0BC1E2009B7AE9 /* IDPInternetImageModel.m in Sources */,
 				766296DB1F04D9FA00FE3150 /* IDPLoadingView.m in Sources */,

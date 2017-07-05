@@ -11,6 +11,4 @@
 @interface IDPFileSystemImageModel : IDPImageModel
 @property (nonatomic, copy) NSString    *imagePath;
 
-- (void)takeImageFromCache;
-
 @end
