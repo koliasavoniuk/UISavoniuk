@@ -63,7 +63,7 @@ static void IDPDispatchSyncOnGlobalQueue(qos_class_t priority, IDPBlock block) {
     dispatch_sync(IDPDispatchGetGlobalQueue(priority), block);
 }
 
-void IDPDispatchSyncOnMainQueue(IDPBlock block) {
+void IDPDispatchAsyncOnMainQueue(IDPBlock block) {
     if ([NSThread isMainThread]) {
         block();
     } else {

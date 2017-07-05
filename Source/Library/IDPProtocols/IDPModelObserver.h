@@ -12,7 +12,7 @@ typedef NS_ENUM(NSUInteger, IDPModelState) {
     IDPModelDidUnload,
     IDPModelWillLoad,
     IDPModelDidLoad,
-    IDPModelDidFailLoading,
+    IDPModelDidFailLoadingWithError,
     IDPModelStateCount
 };
 
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSUInteger, IDPModelState) {
 @optional
 - (void)modelDidLoad:(id)object;
 - (void)modelDidUnload:(id)object;
-- (void)modelDidFailLoading:(id)object;
 - (void)modelWillLoad:(id)object;
+- (void)model:(id)model didFailLoadingWithError:(NSError *)error;
 
 @end

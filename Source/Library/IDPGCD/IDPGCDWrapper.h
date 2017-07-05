@@ -27,7 +27,7 @@ extern void IDPDispatchAsyncWithInteractivePriority(IDPBlock block);
 extern void IDPDispatchAsyncWithDefaultPriority(IDPBlock block);
 
 // dispatch synchronous queues
-extern void IDPDispatchSyncOnMainQueue(IDPBlock block);
+extern void IDPDispatchAsyncOnMainQueue(IDPBlock block);
 extern void IDPDispatchSyncInBackground(IDPBlock block);
 extern void IDPDispatchSyncWithUtilityPriority(IDPBlock block);
 extern void IDPDispatchSyncWithInitiatedPriority(IDPBlock block);

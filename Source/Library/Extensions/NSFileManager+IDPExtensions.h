@@ -10,8 +10,11 @@
 
 @interface NSFileManager (IDPExtensions)
 
-+ (NSURL *)applicationDocumentsDirectoryURL;
-+ (NSURL *)applicationLibraryDirectoryURL;
-+ (NSURL *)applicationDirectoryURL;
++ (NSURL *)libraryFolderURL;
++ (NSURL *)documentsFolderURL;
+
++ (BOOL)fileExsitInDefaultManagerAtPath:(NSString *)path;
+
+- (NSURL *)folderURLInLibraryWithName:(NSString *)name;
 
 @end

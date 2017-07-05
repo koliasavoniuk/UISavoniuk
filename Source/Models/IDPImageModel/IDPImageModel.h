@@ -11,14 +11,15 @@
 
 #import "IDPModel.h"
 #import "IDPModelObserver.h"
+#import "IDPCache.h"
 
 @interface IDPImageModel : IDPModel<IDPModelObserver>
-@property (nonatomic, readonly) UIImage *image;
-@property (nonatomic, readonly) NSURL   *url;
+@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, readonly) NSURL       *url;
+@property (nonatomic, readonly) IDPCache    *cache;
 
 + (instancetype)imageWithURL:(NSURL *)url;
 
 - (instancetype)initWithURL:(NSURL *)url;
-- (void)dump;
 
 @end

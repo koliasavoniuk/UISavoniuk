@@ -25,7 +25,7 @@
 
 - (instancetype)init {
     self = [super init];
-    self.url = [[NSFileManager applicationDocumentsDirectoryURL] URLByAppendingPathComponent:kIDPFileName];
+    self.url = [[NSFileManager documentsFolderURL] URLByAppendingPathComponent:kIDPFileName];
     
     return self;
 }
@@ -45,7 +45,7 @@
            [self addObjects:array];
         }];
         
-        IDPDispatchSyncOnMainQueue(^{
+        IDPDispatchAsyncOnMainQueue(^{
             self.state = IDPModelDidLoad;
         });
     });

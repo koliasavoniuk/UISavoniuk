@@ -20,6 +20,7 @@
 @implementation IDPUser
 
 @dynamic fullName;
+@dynamic imageModel;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -61,6 +62,12 @@
 - (NSString *)imageURL {
     return [[NSBundle mainBundle] pathForResource:kIDPImageName ofType:kIDPImageExtension];
     
+}
+
+- (IDPInternetImageModel *)imageModel {
+    NSURL *url = [NSURL URLWithString:kIDPImageURL];
+    
+    return [IDPInternetImageModel imageWithURL:url];
 }
 
 @end

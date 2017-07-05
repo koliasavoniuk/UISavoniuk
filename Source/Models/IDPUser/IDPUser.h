@@ -9,11 +9,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "IDPInternetImageModel.h"
 
 @interface IDPUser : NSObject
 @property (nonatomic, copy)     NSString    *name;
 @property (nonatomic, copy)     NSString    *surname;
 @property (nonatomic, readonly) NSString    *fullName;
 @property (nonatomic, readonly) NSString    *imageURL;
+
+@property (nonatomic, readonly) IDPInternetImageModel    *imageModel;
 
 @end

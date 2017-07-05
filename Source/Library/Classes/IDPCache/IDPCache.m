@@ -15,6 +15,9 @@
 
 @implementation IDPCache
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (void)dealloc {
     self.cacheMapTable = nil;
 }
@@ -27,6 +30,9 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Public
+
 + (instancetype)sharedCache {
     static dispatch_once_t onceToken;
     static IDPCache *cache = nil;
@@ -35,6 +41,18 @@
     });
     
     return cache;
+}
+
+- (void)setObject:(id)object forKey:(id)key {
+    [self setObject:object forKey:key];
+}
+
+- (void)removeObjectForKey:(id)key {
+    [self.cacheMapTable removeObjectForKey:key];
+}
+
+- (id)modelForKey:(id)key {
+    return [self.cacheMapTable objectForKey:key];
 }
 
 @end

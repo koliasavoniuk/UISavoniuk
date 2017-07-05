@@ -20,3 +20,4 @@ const NSUInteger kIDPHideAlpha = 0;
 const NSUInteger kIDPShowAlpha = 1;
 const NSUInteger kIDPAnimationDuration = 0;
 const NSUInteger kIDPMaxConcurrentOperationCount = 2;
+NSString * const kIDPImageURL = @"https://yt3.ggpht.com/-hh_9YtixJBY/AAAAAAAAAAI/AAAAAAAAAAA/aiOICIGYEzM/s900-c-k-no-mo-rj-c0xffffff/photo.jpg";

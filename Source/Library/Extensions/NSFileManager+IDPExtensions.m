@@ -11,27 +11,61 @@
 @implementation NSFileManager (IDPExtensions)
 
 #pragma mark -
-#pragma mark Classes
+#pragma mark Class Methods
 
-+ (NSURL *)applicationDocumentsDirectoryURL {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-+ (NSURL *)applicationLibraryDirectoryURL {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-+ (NSURL *)applicationLibraryDirectoryWithName:(NSString *)name {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *documentsPath = [self applicationDocumentsDirectoryURL].path;
-    NSString *namePath = [documentsPath stringByAppendingPathComponent:name];
-    if (![fileManager fileExistsAtPath:namePath]) {
-        if ([fileManager createDirectoryAtPath:namePath withIntermediateDirectories:NO attributes:nil error:nil]) {
-            return [NSURL fileURLWithPath:namePath];
-        }
-    }
++ (NSURL *)libraryFolderURL {
+    static dispatch_once_t onceToken;
+    static NSURL *url = nil;
+    dispatch_once(&onceToken, ^{
+        url = [self urlForDirectory:NSLibraryDirectory];
+    });
     
-    return nil;
+    return url;
+}
++ (NSURL *)documentsFolderURL {
+    static dispatch_once_t onceToken;
+    static NSURL *url = nil;
+    dispatch_once(&onceToken, ^{
+        url = [self urlForDirectory:NSDocumentDirectory];
+    });
+    
+    return url;
+}
+
++ (BOOL)fileExsitInDefaultManagerAtPath:(NSString *)path {
+    return [[self defaultManager] fileExistsAtPath:path];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (NSURL *)folderURLInLibraryWithName:(NSString *)name {
+    static dispatch_once_t onceToken;
+    static NSURL *url = nil;
+    dispatch_once(&onceToken, ^{
+        NSURL *libraryURL = [NSFileManager libraryFolderURL];
+        NSError *error;
+        NSString *filePath = [libraryURL.path stringByAppendingPathComponent:name];
+        BOOL result = [[NSFileManager defaultManager] createDirectoryAtPath:filePath
+                                                withIntermediateDirectories:YES
+                                                                 attributes:nil
+                                                                      error:&error];
+        if (!result) {
+            NSLog(@"Create directory error: %@", error);
+        }
+        
+        url = [NSURL URLWithString:filePath];
+    });
+    
+    return url;
+}
+
+#pragma mark -
+#pragma mark Private
+
++ (NSURL *)urlForDirectory:(NSSearchPathDirectory)directory {
+    NSString *url = [NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES) firstObject];
+    return  [NSURL URLWithString:url];
 }
 
 @end
