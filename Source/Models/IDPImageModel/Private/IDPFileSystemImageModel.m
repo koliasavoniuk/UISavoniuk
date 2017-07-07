@@ -18,8 +18,7 @@
 #pragma mark Public Methods
 
 - (void)loadWithCompletion:(void (^)(UIImage *, id))block {
-    UIImage *image = [UIImage imageWithContentsOfFile:self.url.path];
-    block(image, nil);
+    block([UIImage imageWithContentsOfFile:self.url.path], nil);
 }
 
 @end

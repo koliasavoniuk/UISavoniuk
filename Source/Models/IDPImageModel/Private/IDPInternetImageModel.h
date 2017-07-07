@@ -9,5 +9,6 @@
 #import "IDPFileSystemImageModel.h"
 
 @interface IDPInternetImageModel : IDPFileSystemImageModel
+@property (nonatomic, readonly)     NSURL        *localPath;
 
 @end

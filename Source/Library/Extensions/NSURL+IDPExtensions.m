@@ -12,15 +12,16 @@
 
 @implementation NSURL (IDPExtensions)
 
-+ (instancetype)localURLFromNetworkURL:(NSURL *)url {
-    NSString *fileName = [[url lastPathComponent] stringByDeletingPathExtension];
+- (instancetype)localURLFromNetworkURL {
+    NSString *fileNameEncoding = [self.relativePath
+                                  stringByAddingPercentEncodingWithAllowedCharacters:
+                                  [NSCharacterSet alphanumericCharacterSet]];
     
     NSURL *localUrl = [NSURL fileURLWithPath:
                        [NSString stringWithFormat:
-                        @"%@/%@", [NSFileManager libraryFolderURL].path, fileName]];
+                        @"%@/%@", [NSFileManager libraryFolderURL].path, fileNameEncoding]];
     
     return localUrl;
 }
-
 
 @end

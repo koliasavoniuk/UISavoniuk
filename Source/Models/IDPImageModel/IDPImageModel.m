@@ -15,8 +15,8 @@
 
 @interface IDPImageModel ()
 @property (nonatomic, strong)   NSURL       *url;
-@property (nonatomic, strong)   IDPCache    *cache;
 @property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, strong)   NSURL       *localPath;
 
 - (void)loadWithCompletion:(void(^) (UIImage *, id))block;
 
@@ -32,15 +32,14 @@
     id model = [cache modelForKey:url];
     if (model) {
         return model;
-    } else {
-        BOOL result = [url.scheme containsString:@"http"];
-        model = (result) ? [[IDPInternetImageModel alloc] initWithURL:url]
-                         : [[IDPFileSystemImageModel alloc] initWithURL:url];
-        
-        [cache setObject:model forKey:url];
-        
-        return model;
     }
+    
+    Class class = url.fileURL ? [IDPFileSystemImageModel class] : [IDPInternetImageModel class];
+    model = [[class alloc] initWithURL:url];
+    [cache setObject:model forKey:url];
+    
+    return model;
+
 }
 
 #pragma mark -
@@ -59,15 +58,15 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public
 
-- (void)setImage:(UIImage *)image {
-    if (image != _image) {
-        _image = image;
-        
-        self.state = (image) ? IDPModelDidLoad : IDPModelDidFailLoading;
-    }
+- (void)removeCachedFile {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    [manager removeItemAtURL:self.localPath error:nil];
 }
+
+#pragma mark -
+#pragma mark Override Methods
 
 - (void)performLoading {
     [self loadWithCompletion:^(UIImage *image, id error) {

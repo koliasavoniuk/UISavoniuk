@@ -10,6 +10,6 @@
 
 @interface NSURL (IDPExtensions)
 
-+ (instancetype)localURLFromNetworkURL:(NSURL *)url;
+- (instancetype)localURLFromNetworkURL;
 
 @end

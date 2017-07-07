@@ -9,6 +9,5 @@
 #import "IDPImageModel.h"
 
 @interface IDPFileSystemImageModel : IDPImageModel
-@property (nonatomic, copy) NSString    *imagePath;
 
 @end
